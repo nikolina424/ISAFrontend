@@ -1,3 +1,5 @@
+import { AllergyComponent } from './pages/new-items/allergy/allergy.component';
+import { UpdatePatientComponent } from './pages/updates/update-patient/update-patient.component';
 import { RegistrationRequestsComponent } from './pages/lists/registration-requests/registration-requests.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -31,7 +33,9 @@ registerLocaleData(en);
     LoginComponent,
     RegisterPatientComponent,
     HomepageComponent,
-    RegistrationRequestsComponent
+    RegistrationRequestsComponent,
+    UpdatePatientComponent,
+    AllergyComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,22 @@
+<nz-table #basicTable [nzData]="medicaments">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Contraindications</th>
+        <th>Ingredients</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let medicament of medicaments">
+        <td>{{ medicament.name }}</td>
+        <td>{{ medicament.type }}</td>
+        <td>{{ medicament.contraindications }}</td>
+        <td>{{ medicament.ingredients }}</td>
+        <td>
+          <a (click)="add(medicament.id)">Add allergy</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table> 

@@ -3,7 +3,8 @@
       <div class="logo"></div>
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
     
-        <li nz-menu-item >Change your profile </li>
+        <li nz-menu-item *ngIf="isPatient" (click)="patientProfile()">Change your profile </li>
+        <li nz-menu-item *ngIf="isPatient" (click)="addAllergy()">Add allergy </li>
         <li nz-menu-item *ngIf="isSystemAdmin" (click)="registrationRequests()">Registration requests</li>
         <li nz-menu-item (click)="clearStorage()">Logout</li>
       </ul>

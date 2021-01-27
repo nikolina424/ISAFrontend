@@ -24,11 +24,9 @@ export class HomepageComponent implements OnInit {
   }
 
   private setupUser(): void {
-    console.log("Ispisacu usera");
     this.user = JSON.parse(localStorage.getItem('user'));
-    console.log("Ispisacu usera");
-    console.log(this.user);
   } 
+  
   private setupUserType(): void {
     if(this.user.userRole === 'SYSTEM_ADMIN'){
       this.isSystemAdmin = true;
@@ -46,6 +44,14 @@ export class HomepageComponent implements OnInit {
 
   registrationRequests(): void {
     this.router.navigate(['homepage/lists/registration-requests']);
+  }
+
+  public patientProfile(): void {
+    this.router.navigateByUrl(`homepage/updates/update-patient/${this.user.id}`);
+  }
+
+  public addAllergy(): void {
+    this.router.navigateByUrl(`homepage/new-items/allergy`);
   }
 
 
