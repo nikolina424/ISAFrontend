@@ -1,0 +1,29 @@
+<nz-table #basicTable [nzData]="pendingUsers">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Number</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pendingUser of pendingUsers">
+        <td>{{ pendingUser.username }}</td>
+        <td>{{ pendingUser.firstName }}</td>
+        <td>{{ pendingUser.lastName }}</td>
+        <td>{{ pendingUser.number }}</td>
+        <td>{{ pendingUser.address }}</td>
+        <td>{{ pendingUser.city }}</td>
+        <td>
+          <a (click)="approve(pendingUser.id)">Approve</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a (click)="deny(pendingUser.id)">Deny</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table> 

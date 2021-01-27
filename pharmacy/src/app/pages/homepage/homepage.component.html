@@ -2,8 +2,10 @@
     <nz-header>
       <div class="logo"></div>
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
-        <li nz-menu-item (click)="loginForm()">Login</li>
-        <li nz-menu-item (click)="registrationForm()">Register</li>
+    
+        <li nz-menu-item >Change your profile </li>
+        <li nz-menu-item *ngIf="isSystemAdmin" (click)="registrationRequests()">Registration requests</li>
+        <li nz-menu-item (click)="clearStorage()">Logout</li>
       </ul>
     </nz-header>
     <nz-content>

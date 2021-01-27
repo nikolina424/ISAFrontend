@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'frontpage',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrontpageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  loginForm():void{
+    this.router.navigate(['frontpage/login']);
+  }
+
+  registrationForm():void{
+    this.router.navigate(['frontpage/register-patient']);
+  }
 }
