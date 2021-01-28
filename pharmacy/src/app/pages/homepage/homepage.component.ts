@@ -71,6 +71,9 @@ export class HomepageComponent implements OnInit {
     this.router.navigateByUrl(`homepage/lists/pharmacists`);
   }
 
+  public pharmacyAdminProfile(): void {
+    this.router.navigateByUrl(`homepage/updates/update-pharmacy-admin/${this.user.id}`);
+  }
 
 
   public clearStorage(): void {

@@ -7,6 +7,7 @@
         <li nz-menu-item *ngIf="isPatient" (click)="addAllergy()">Add allergy </li>
 
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="updatePharmacy()">Update pharmacy </li>
+        <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="pharmacyAdminProfile()">Update your profile </li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="editDermatologists()">Edit dermatologists</li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="editMedicaments()">Edit medicaments </li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="editPharmacists()">Edit pharmacists </li>

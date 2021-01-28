@@ -1,3 +1,5 @@
+import { UpdatePharmacyAdminComponent } from './pages/updates/update-pharmacy-admin/update-pharmacy-admin.component';
+import { PharmacistComponent } from './pages/new-items/pharmacist/pharmacist.component';
 import { NewPharmacyMedicamentComponent } from './pages/new-items/new-pharmacy-medicament/new-pharmacy-medicament.component';
 import { NewMedicamentsComponent } from './pages/lists/new-medicaments/new-medicaments.component';
 import { UpdatePharmacyMedicamentComponent } from './pages/updates/update-pharmacy-medicament/update-pharmacy-medicament.component';
@@ -52,7 +54,9 @@ registerLocaleData(en);
     PharmacistsComponent,
     UpdatePharmacyMedicamentComponent,
     NewMedicamentsComponent,
-    NewPharmacyMedicamentComponent
+    NewPharmacyMedicamentComponent,
+    PharmacistComponent,
+    UpdatePharmacyAdminComponent
   ],
   imports: [
     BrowserModule,

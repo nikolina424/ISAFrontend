@@ -1,3 +1,6 @@
+import { UpdatePharmacyAdminComponent } from './pages/updates/update-pharmacy-admin/update-pharmacy-admin.component';
+import { PharmacistComponent } from './pages/new-items/pharmacist/pharmacist.component';
+import { PharmacistService } from './services/pharmacist.service';
 import { NewPharmacyMedicamentComponent } from './pages/new-items/new-pharmacy-medicament/new-pharmacy-medicament.component';
 import { NewMedicamentsComponent } from './pages/lists/new-medicaments/new-medicaments.component';
 import { UpdatePharmacyMedicamentComponent } from './pages/updates/update-pharmacy-medicament/update-pharmacy-medicament.component';
@@ -32,7 +35,9 @@ const routes: Routes = [
     {path: 'updates/update-patient/:id', component:UpdatePatientComponent},
     {path: 'updates/update-pharmacy-medicament/:id', component:UpdatePharmacyMedicamentComponent},
     {path: 'updates/update-pharmacy/:id', component:UpdatePharmacyComponent},
+    {path: 'updates/update-pharmacy-admin/:id', component:UpdatePharmacyAdminComponent},
     {path: 'new-items/allergy', component:AllergyComponent},
+    {path: 'new-items/pharmacist', component:PharmacistComponent},
     {path: 'new-items/new-pharmacy-medicament/:id', component:NewPharmacyMedicamentComponent},
     {path: 'new-items/shift', component:ShiftComponent}
   ]}

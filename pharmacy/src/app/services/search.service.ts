@@ -17,6 +17,14 @@ export class SearchService {
     return this.http.get(`http://localhost:8080/dermatologists/search`, queryParams);
   }
 
+  public searchPharmacists(data) : Observable<any>{
+    let queryParams = {
+      params : new HttpParams().set('firstName', data["firstName"])
+                               .set('lastName', data["lastName"])
+    } 
+    return this.http.get(`http://localhost:8080/pharmacists/search`, queryParams);
+  }
+
   public searchPharmacyMedicaments(data) : Observable<any>{
     let queryParams = {
       params : new HttpParams().set('name', data["name"])

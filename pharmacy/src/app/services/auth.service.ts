@@ -20,4 +20,8 @@ export class AuthService {
     return this.http.post('http://localhost:8080/auth/register-patient', body);
   }
 
+  public registerPharmacist(body): Observable<any> {
+    return this.http.post('http://localhost:8080/auth/register-pharmacist', body)
+  }
+
 }
