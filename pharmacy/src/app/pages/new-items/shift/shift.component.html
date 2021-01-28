@@ -1,0 +1,23 @@
+<label class="labela">You chose dermatologist: </label>
+<label class="ime"><b>{{dermatologist.firstName}} {{dermatologist.lastName}}</b></label>
+
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+   <br>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="start">Start shift</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid time!">
+        <input nz-input formControlName="start" id="start" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="end">End shift</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid time!">
+          <input nz-input formControlName="end" id="end" />
+        </nz-form-control>
+      </nz-form-item>
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary" nzGhost>Add dermatologist</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>

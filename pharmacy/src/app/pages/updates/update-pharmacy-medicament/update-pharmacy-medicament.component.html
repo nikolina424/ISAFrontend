@@ -1,0 +1,16 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <br>
+     <!--QUANTITY-->
+     <nz-form-item>
+       <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="quantity">Quantity</nz-form-label>
+       <nz-form-control [nzSm]="14" [nzXs]="24">
+         <input nz-input id="quantity" formControlName="quantity"/>
+       </nz-form-control>
+     </nz-form-item>
+     <!--UPDATE-->
+     <nz-form-item nz-row class="create-area">
+       <nz-form-control [nzSpan]="14" [nzOffset]="6">
+         <button nz-button nzType="primary" nzGhost>Update</button>
+       </nz-form-control>
+     </nz-form-item>
+   </form>

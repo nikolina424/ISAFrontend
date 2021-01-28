@@ -1,0 +1,52 @@
+<div class="content">
+  <br> 
+  <form  nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
+        <nz-form-item>
+          <nz-form-label class="formica" >First name </nz-form-label>
+          <nz-form-control>
+            <input class="ime" nz-input formControlName="firstName" placeholder="Input first name"/>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label class="formica" >Last name </nz-form-label>
+            <nz-form-control>
+              <input class="ime" nz-input formControlName="lastName" placeholder="Input last name"/>
+            </nz-form-control>
+        </nz-form-item>
+       
+      <div nz-row>
+        <div nz-col [nzSpan]="24" class="search-area">
+          <button nz-button class="dugmic1" nzType="primary" (click)="search()" ><i nz-icon nzType="search"></i>Search</button>
+          <button nz-button class="dugmic" (click)="resetForm()" >Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <br><br>
+  <!--RESULT-->
+  <nz-table #basicTable [nzData]="dermatologists">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Number</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dermatologist of dermatologists">
+        <td>{{ dermatologist.username }}</td>
+        <td>{{ dermatologist.firstName }}</td>
+        <td>{{ dermatologist.lastName }}</td>
+        <td>{{ dermatologist.number }}</td>
+        <td>{{ dermatologist.address }}</td>
+        <td>
+          <a (click)="add(dermatologist.id)">Add</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a (click)="remove(dermatologist.id)">Remove</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table> 

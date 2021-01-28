@@ -1,0 +1,56 @@
+<div class="content">
+    <br> 
+    <form  nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
+          <nz-form-item>
+            <nz-form-label class="formica" >Name</nz-form-label>
+            <nz-form-control>
+              <input class="ime" nz-input formControlName="name" placeholder="Input name"/>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+              <nz-form-label class="formica" >Type </nz-form-label>
+              <nz-form-control>
+                <input class="ime" nz-input formControlName="type" placeholder="Input type"/>
+              </nz-form-control>
+          </nz-form-item>
+         
+        <div nz-row>
+          <div nz-col [nzSpan]="24" class="search-area">
+            <button nz-button class="dugmic1" nzType="primary"  (click)="search()" ><i nz-icon nzType="search"></i>Search</button>
+            <button nz-button class="dugmic"  (click)="resetForm()"  >Clear</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <br><br>
+    <!--RESULT-->
+    <nz-table #basicTable [nzData]="pharmacyMedicaments">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Quantity</th>
+          <th>Contraindications</th>
+          <th>Ingredients</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pharmacyMedicament of pharmacyMedicaments">
+          <td >{{pharmacyMedicament.medicament.name }}</td>
+          <td>{{ pharmacyMedicament.medicament.type }}</td>
+          <td>{{ pharmacyMedicament.quantity }}</td>
+          <td>{{ pharmacyMedicament.medicament.contraindications }}</td>
+          <td>{{ pharmacyMedicament.medicament.ingredients }}</td>
+          <td>
+            <a (click)="change(pharmacyMedicament.id)" >Change quantity</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a >Remove</a>
+          </td>
+        </tr>
+      </tbody>
+     
+    </nz-table> 
+    <button nz-button (click)="add()" nzType="primary" nzGhost>Add new medicament to pharmacy</button>
+    
+  

@@ -54,6 +54,24 @@ export class HomepageComponent implements OnInit {
     this.router.navigateByUrl(`homepage/new-items/allergy`);
   }
 
+  public updatePharmacy(): void {
+    this.router.navigateByUrl(`homepage/updates/update-pharmacy/${this.user.pharmacyId}`);
+  }
+
+  public editDermatologists(): void {
+    this.router.navigateByUrl(`homepage/lists/dermatologists`);
+  }
+
+  public editMedicaments(): void {
+    this.router.navigateByUrl(`homepage/lists/medicaments`);
+  }
+
+
+  public editPharmacists(): void {
+    this.router.navigateByUrl(`homepage/lists/pharmacists`);
+  }
+
+
 
   public clearStorage(): void {
     localStorage.clear();

@@ -1,3 +1,11 @@
+import { NewPharmacyMedicamentComponent } from './pages/new-items/new-pharmacy-medicament/new-pharmacy-medicament.component';
+import { NewMedicamentsComponent } from './pages/lists/new-medicaments/new-medicaments.component';
+import { UpdatePharmacyMedicamentComponent } from './pages/updates/update-pharmacy-medicament/update-pharmacy-medicament.component';
+import { PharmacistsComponent } from './pages/lists/pharmacists/pharmacists.component';
+import { MedicamentsComponent } from './pages/lists/medicaments/medicaments.component';
+import { ShiftComponent } from './pages/new-items/shift/shift.component';
+import { DermatologistsComponent } from './pages/lists/dermatologists/dermatologists.component';
+import { UpdatePharmacyComponent } from './pages/updates/update-pharmacy/update-pharmacy.component';
 import { AllergyComponent } from './pages/new-items/allergy/allergy.component';
 import { UpdatePatientComponent } from './pages/updates/update-patient/update-patient.component';
 import { RegistrationRequestsComponent } from './pages/lists/registration-requests/registration-requests.component';
@@ -23,6 +31,7 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 registerLocaleData(en);
 
@@ -35,7 +44,15 @@ registerLocaleData(en);
     HomepageComponent,
     RegistrationRequestsComponent,
     UpdatePatientComponent,
-    AllergyComponent
+    AllergyComponent,
+    UpdatePharmacyComponent,
+    DermatologistsComponent,
+    ShiftComponent,
+    MedicamentsComponent,
+    PharmacistsComponent,
+    UpdatePharmacyMedicamentComponent,
+    NewMedicamentsComponent,
+    NewPharmacyMedicamentComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +66,7 @@ registerLocaleData(en);
     DragDropModule,
     BrowserAnimationsModule, 
     DemoNgZorroAntdModule,
+    NgxMaterialTimepickerModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
