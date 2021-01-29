@@ -10,6 +10,9 @@ export class RegistrationRequestsComponent implements OnInit {
 
  
   public pendingUsers = [];
+  public approveAlert = false;
+  public denyAlert = false;
+  public empty = false;
 
   constructor(private rrService: RegistrationRequestService) { }
   
@@ -21,6 +24,9 @@ export class RegistrationRequestsComponent implements OnInit {
   private getAllPendingUsers(): void {
     this.rrService.getAllPendingUsers().subscribe(data => {
       this.pendingUsers = data;
+      if(this.pendingUsers.length === 0){
+        this.empty = true;
+      }
     }, error => {
       
     })
@@ -32,7 +38,7 @@ export class RegistrationRequestsComponent implements OnInit {
     }
     this.rrService.approveRegistrationRequest(body).subscribe(data =>{
     location.reload();
-      alert("Uspesno apruvovan");
+      this.approveAlert = true;
     })
   }
 
@@ -42,7 +48,7 @@ export class RegistrationRequestsComponent implements OnInit {
     }
     this.rrService.denyRegistrationRequest(body).subscribe(data =>{
       location.reload();
-      alert("Denajovan");
+      this.denyAlert = true;
     })
   }
 

@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterPatientComponent implements OnInit {
 
+  errorRegister: boolean = false;
   validateForm!: FormGroup;
  
   constructor(private router:Router,private fb: FormBuilder, private authService: AuthService) {}
@@ -34,13 +35,10 @@ export class RegisterPatientComponent implements OnInit {
   }
   console.log(body);
   this.authService.registerPatient(body).subscribe(data => {
-    alert('Uspešno ste se registrovali!');
     this.router.navigateByUrl(`frontpage/login`);
     
   }, error => {
-    console.log(error);
-  
-    alert('Error')
+    this.errorRegister = true;
   })
   }
 

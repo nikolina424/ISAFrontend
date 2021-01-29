@@ -18,6 +18,7 @@ export class DermatologistsComponent implements OnInit {
   public pharmacyId: any;
   public pharmacies = [];
   public dermatologist: any;
+  public alreadyHere = false;
 
   constructor(private router: Router, private dermatologistService: DermatologistService, private fb: FormBuilder, private searchService: SearchService) { }
 
@@ -93,7 +94,7 @@ export class DermatologistsComponent implements OnInit {
       console.log(body);
       this.router.navigateByUrl(`homepage/new-items/shift`);
     }else{
-      console.log("True sam i uspeo sam");
+      this.alreadyHere = true;
     }
   }
 

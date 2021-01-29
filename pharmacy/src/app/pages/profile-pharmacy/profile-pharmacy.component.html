@@ -1,0 +1,73 @@
+<h1 class="name">{{pharmacy.name}}</h1>
+<label class="nzm"><b>Address:</b> </label>
+<br>
+<label class="nzm">-> {{pharmacy.address}} </label>
+<br>
+<label class="nzm"><b>About: </b></label>
+<br>
+<label class="nzm">-> {{pharmacy.about}} </label>
+<br>
+<br>
+<label class="nzm"><b>Pharmacists in this pharmacy:</b></label>
+<nz-table #basicTable [nzData]="pharmacists">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pharmacist of pharmacists">
+        <td>{{ pharmacist.firstName }}</td>
+        <td>{{ pharmacist.lastName }}</td>
+        <td>{{ pharmacist.number }}</td>
+      </tr>
+    </tbody>
+  </nz-table> 
+  <br>
+  <label class="nzm"><b>Available medicaments in this pharmacy:</b></label>
+<nz-table #basicTable [nzData]="pharmacyMedicaments">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Contraindications</th>
+        <th>Ingredients</th>
+        <th>Shape</th>
+        <th>Manufacturer</th>
+        <th>Issuance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pharmacyMedicament of pharmacyMedicaments">
+        <td>{{ pharmacyMedicament.medicament.name }}</td>
+        <td>{{ pharmacyMedicament.medicament.type }}</td>
+        <td>{{ pharmacyMedicament.medicament.contraindications }}</td>
+        <td>{{ pharmacyMedicament.medicament.ingredients }}</td>
+        <td>{{ pharmacyMedicament.medicament.shape }}</td>
+        <td>{{ pharmacyMedicament.medicament.manufacturer }}</td>
+        <td>{{ pharmacyMedicament.medicament.issuance }}</td>
+      </tr>
+    </tbody>
+  </nz-table> 
+
+<br>
+<label class="nzm"><b>Dermatologists in this pharmacy:</b></label>
+<nz-table #basicTable [nzData]="dermatologists">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dermatologist of dermatologists">
+        <td>{{ dermatologist.firstName }}</td>
+        <td>{{ dermatologist.lastName }}</td>
+        <td>{{ dermatologist.number }}</td>
+      </tr>
+    </tbody>
+  </nz-table> 
+  

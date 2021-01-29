@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
 export class PharmacyComponent implements OnInit {
 
   validateForm!: FormGroup;
+  public addPharmacy = false;
 
   constructor(private pharmacyService: PharmacyService, private fb: FormBuilder, private route: ActivatedRoute) { }
 
@@ -35,7 +36,7 @@ export class PharmacyComponent implements OnInit {
       address:this.validateForm.value.address
     }
     this.pharmacyService.registerPharmacy(body).subscribe(data =>{
-      alert('Uspesno dodata apoteka!');
+      this.addPharmacy = true;
     })
   }
 

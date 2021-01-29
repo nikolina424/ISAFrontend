@@ -16,6 +16,8 @@ export class ShiftComponent implements OnInit {
   public user: any;
   start: any;
   end: any;
+  public warning = false;
+  public success = false;
   
 
   constructor( private fb: FormBuilder, private shiftService: ShiftService) { }
@@ -52,7 +54,10 @@ export class ShiftComponent implements OnInit {
       dermatologistId: this.dermatologist.id
     }
     this.shiftService.createShift(body).subscribe(data =>{
-      alert('Uspesno dodat radnik!');
+      this.success = true;
+      this.warning = false;
+    }, error => {
+      this.warning = true;
     })
   }
 

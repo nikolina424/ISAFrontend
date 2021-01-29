@@ -15,6 +15,7 @@ export class NewMedicamentsComponent implements OnInit {
   public medicaments = [];
   public pharmacyMedicaments = [];
   public exists : boolean = false;
+  public alreadyHere = false;
 
   constructor(private router: Router, private pmService: PharmacyMedicamentService, private medicamentService: MedicamentService) { }
 
@@ -52,7 +53,7 @@ export class NewMedicamentsComponent implements OnInit {
           }
         });
         if(this.exists === true){
-          console.log("Ne mozes me ubaciti jer sam vec tu");
+          this.alreadyHere = true;
           this.exists = false;
         }else{
           console.log("Mozes me ubaciti");

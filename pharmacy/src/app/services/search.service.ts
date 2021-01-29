@@ -33,4 +33,19 @@ export class SearchService {
     return this.http.get(`http://localhost:8080/pharmacy-medicaments/search`, queryParams);
   }
 
+  public searchMedicaments(data) : Observable<any>{
+    let queryParams = {
+      params : new HttpParams().set('name', data["name"])
+                               .set('type', data["type"])
+    } 
+    return this.http.get(`http://localhost:8080/medicaments/search`, queryParams);
+  }
+
+  public searchPharmacies(data) : Observable<any>{
+    let queryParams = {
+      params : new HttpParams().set('name', data["name"])
+    } 
+    return this.http.get(`http://localhost:8080/pharmacies/search`, queryParams);
+  }
+
 }

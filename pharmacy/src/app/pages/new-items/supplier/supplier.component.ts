@@ -14,6 +14,8 @@ export class SupplierComponent implements OnInit {
 
   validateForm!: FormGroup;
   public user: any;
+  public username = false;
+
 
   constructor(private router:Router,private fb: FormBuilder, private authService: AuthService) {}
 
@@ -36,12 +38,9 @@ export class SupplierComponent implements OnInit {
   console.log(body);
   this.authService.registerSupplier(body).subscribe(data => {
     this.router.navigateByUrl(`homepage`);
-    location.reload();
     
   }, error => {
-    console.log(error);
-  
-    alert('Error')
+    this.username = true;
   })
   }
 

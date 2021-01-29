@@ -14,7 +14,8 @@ export class PharmacyAdminComponent implements OnInit {
   validateForm!: FormGroup;
   public pharmacyId: any;
   public user: any;
- 
+  public username = false;
+
   constructor(private route: ActivatedRoute, private router:Router,private fb: FormBuilder, private authService: AuthService) {}
 
   submitForm(): void {
@@ -35,13 +36,11 @@ export class PharmacyAdminComponent implements OnInit {
   }
   console.log(body);
   this.authService.registerPharmacyAdmin(body).subscribe(data => {
-    //this.router.navigateByUrl(`homepage`);
+    this.router.navigateByUrl(`homepage`);
    // location.reload();
     
   }, error => {
-    console.log(error);
-  
-    alert('Error')
+      this.username = true;
   })
   }
 

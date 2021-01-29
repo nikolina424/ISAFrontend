@@ -14,4 +14,8 @@ export class ShiftService {
     return this.http.post(`http://localhost:8080/shifts`, body);
   }
 
+  public getAllShiftsByPharmacyId(id):Observable<any> {
+    return this.http.get(`http://localhost:8080/shifts/${id}/pharmacy`);
+  }
+
 }

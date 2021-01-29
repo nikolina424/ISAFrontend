@@ -1,3 +1,21 @@
+    <nz-alert
+      nzType="success"
+      nzMessage="Success Tips"
+      *ngIf="approveAlert"
+      nzDescription="Successfully approved!"
+      nzShowIcon
+    >
+    </nz-alert>
+    <nz-alert
+      nzType="success"
+      *ngIf="denyAlert"
+      nzMessage="Success Tips"
+      nzDescription="Successfully denied!"
+      nzShowIcon
+    >
+    </nz-alert>
+    <nz-alert nzType="warning" nzMessage="Warning"  *ngIf="empty" nzDescription="There is no more registration requests!" nzShowIcon> </nz-alert>
+
 <nz-table #basicTable [nzData]="pendingUsers">
     <thead>
       <tr>

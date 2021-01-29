@@ -10,7 +10,7 @@ export class AllergyComponent implements OnInit {
 
   public medicaments = [];
   public user: any;
-
+  public errorAllergy: boolean = false;
 
   constructor(private patientService: PatientService) { }
 
@@ -32,19 +32,22 @@ export class AllergyComponent implements OnInit {
     console.log(body);
     this.patientService.getAvailableMeds(body.id).subscribe(data => {
       this.medicaments = data;
+      console.log(this.medicaments);
+      if(this.medicaments.length == 0){
+        this.errorAllergy = true;
+      }
     }, error => {
-      
+     
     })
   }
 
   public add(id): void{
-    console.log("Ulazim u add");
     const body = {
       id: id
     }
     this.patientService.addNewAlergy(this.user.id, body).subscribe(data => {
       location.reload();
-      console.log("Dodao sammm");
+      this.getAvailableMeds();
     })
   }
 

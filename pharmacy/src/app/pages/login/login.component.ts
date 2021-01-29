@@ -12,6 +12,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
 
+  errorLogin: boolean = false;
   validateForm!: FormGroup;
 
   constructor(private route: ActivatedRoute,  private rrService: RegistrationRequestService,private router:Router,private fb: FormBuilder, private authService: AuthService) {}
@@ -26,13 +27,12 @@ export class LoginComponent implements OnInit {
         password: this.validateForm.value.password
     }
     this.authService.login(body).subscribe(data => {
-      alert('Uspesno ste se logovali!');
       const user = data;
       localStorage.setItem('user', JSON.stringify(user));
       this.router.navigate(['homepage']);
     
-    }, error => {    
-      alert('Error')
+    }, error => { 
+      this.errorLogin = true;   
     })
   }
 

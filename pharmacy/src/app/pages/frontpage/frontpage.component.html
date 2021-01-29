@@ -4,9 +4,11 @@
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
         <li nz-menu-item (click)="loginForm()">Login</li>
         <li nz-menu-item (click)="registrationForm()">Register</li>
+        <li nz-menu-item (click)="searchPharmacies()">Search pharmacies</li>
+        <li nz-menu-item (click)="searchMedicaments()">Search medicaments</li>
       </ul>
     </nz-header>
     <nz-content>
-      <router-outlet></router-outlet>
+     <router-outlet></router-outlet>
     </nz-content>
   </nz-layout>

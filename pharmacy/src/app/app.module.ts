@@ -1,3 +1,4 @@
+import { ProfilePharmacyComponent } from './pages/profile-pharmacy/profile-pharmacy.component';
 import { MedicamentComponent } from './pages/new-items/medicament/medicament.component';
 import { SupplierComponent } from './pages/new-items/supplier/supplier.component';
 import { SystemAdminComponent } from './pages/new-items/system-admin/system-admin.component';
@@ -43,6 +44,8 @@ import en from '@angular/common/locales/en';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { SearchPharmaciesComponent } from './pages/lists/search-pharmacies/search-pharmacies.component';
+import { SearchMedicamentsComponent } from './pages/lists/search-medicaments/search-medicaments.component';
 
 registerLocaleData(en);
 
@@ -73,7 +76,10 @@ registerLocaleData(en);
     DermatologistComponent,
     SystemAdminComponent,
     SupplierComponent,
-    MedicamentComponent
+    MedicamentComponent,
+    SearchPharmaciesComponent,
+    SearchMedicamentsComponent,
+    ProfilePharmacyComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,8 @@
         <td>{{ pharmacy.about }}</td>
         <td>{{ pharmacy.address }}</td>
         <td>
-          <a (click)="createAdmin(pharmacy.id)">Create admin</a>
+          <a *ngIf="isSystemAdmin" (click)="createAdmin(pharmacy.id)">Create admin</a>
+          <a *ngIf="isPatient" (click)="viewProfile(pharmacy.id)">View profile</a>
         </td>
       </tr>
     </tbody>

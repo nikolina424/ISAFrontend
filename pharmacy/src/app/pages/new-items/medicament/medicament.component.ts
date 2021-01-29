@@ -18,7 +18,6 @@ export class MedicamentComponent implements OnInit {
 
 
   submitForm(): void {
-    console.log("Ulazim u submit");
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
@@ -36,7 +35,6 @@ export class MedicamentComponent implements OnInit {
     issuance: this.validateForm.value.issuance,
     notes: this.validateForm.value.notes
   }
-  console.log(body);
   this.medicamentService.createMedicament(body).subscribe(data => {
     this.router.navigateByUrl(`homepage`);
     location.reload();

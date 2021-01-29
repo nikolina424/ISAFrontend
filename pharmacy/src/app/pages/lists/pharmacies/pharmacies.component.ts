@@ -9,12 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PharmaciesComponent implements OnInit {
 
+  public isPatient: boolean = false;
+  public isSystemAdmin: boolean = false;
   public pharmacies = [];
+  public user: any;
+
 
   constructor(private router: Router,private pharmacyService: PharmacyService) { }
 
   ngOnInit(): void {
     this.getAllPharmacies();
+    this.setupUser();
+    this.setupUserType();
+    console.log(this.isSystemAdmin);
+  }
+
+  private setupUser(): void {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  } 
+  
+  private setupUserType(): void {
+    if(this.user.userRole === 'SYSTEM_ADMIN'){
+      this.isSystemAdmin = true;
+    }else if(this.user.userRole === 'PATIENT'){
+      this.isPatient = true;
+    }
+    
   }
 
   private getAllPharmacies(): void {
@@ -27,6 +47,10 @@ export class PharmaciesComponent implements OnInit {
 
   public createAdmin(id): void {
     this.router.navigateByUrl(`homepage/new-items/pharmacy-admin/${id}`);
+  }
+
+  public viewProfile(id): void {
+    this.router.navigateByUrl(`homepage/profile-pharmacy/${id}`);
   }
 
 }

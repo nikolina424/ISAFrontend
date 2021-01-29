@@ -1,3 +1,11 @@
+<nz-alert
+nzType="success"
+*ngIf="addPharmacy"
+nzMessage="Success Tips"
+nzDescription="Successfully added pharmacy!"
+nzShowIcon
+>
+</nz-alert>
 <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
     <br>
      <nz-form-item>
@@ -20,7 +28,7 @@
       </nz-form-item>
      <nz-form-item nz-row class="register-area">
        <nz-form-control [nzSpan]="14" [nzOffset]="6">
-         <button nz-button nzType="primary" nzGhost>Add pharmacy</button>
+         <button nz-button nzType="primary"  [disabled]="!validateForm.valid" nzGhost>Add pharmacy</button>
        </nz-form-control>
      </nz-form-item>
    </form>

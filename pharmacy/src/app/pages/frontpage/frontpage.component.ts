@@ -20,4 +20,12 @@ export class FrontpageComponent implements OnInit {
   registrationForm():void{
     this.router.navigate(['frontpage/register-patient']);
   }
+
+  searchPharmacies(): void{
+    this.router.navigate(['frontpage/lists/search-pharmacies']);
+  }
+
+  searchMedicaments(): void{
+    this.router.navigate(['frontpage/lists/search-medicaments']);
+  }
 }

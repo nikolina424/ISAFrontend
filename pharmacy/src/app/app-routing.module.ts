@@ -1,3 +1,4 @@
+import { ProfilePharmacyComponent } from './pages/profile-pharmacy/profile-pharmacy.component';
 import { MedicamentComponent } from './pages/new-items/medicament/medicament.component';
 import { DermatologistComponent } from './pages/new-items/dermatologist/dermatologist.component';
 import { SupplierComponent } from './pages/new-items/supplier/supplier.component';
@@ -27,15 +28,22 @@ import { FrontpageComponent } from './pages/frontpage/frontpage.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
+import { SearchMedicamentsComponent } from './pages/lists/search-medicaments/search-medicaments.component';
+import { SearchPharmaciesComponent } from './pages/lists/search-pharmacies/search-pharmacies.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'frontpage'},
+  {path: '', pathMatch: 'full', redirectTo: 'frontpage/lists/search-pharmacies'},
   {path: 'frontpage', component:FrontpageComponent, children: [
     {path: 'register-patient', component: RegisterPatientComponent},
     {path: 'login', component: LoginComponent},
     {path: 'login/:id', component: LoginComponent },
+    {path: 'lists/search-medicaments', component: SearchMedicamentsComponent},
+    {path: 'profile-pharmacy/:id', component: ProfilePharmacyComponent},
+    {path: 'lists/search-pharmacies', component: SearchPharmaciesComponent},
+    {path: 'login', component: LoginComponent},
   ]},
   {path: 'homepage', component:HomepageComponent, children: [
+    {path: 'profile-pharmacy/:id', component: ProfilePharmacyComponent},
     {path: 'lists/registration-requests', component: RegistrationRequestsComponent},
     {path: 'lists/dermatologists', component: DermatologistsComponent},
     {path: 'lists/pharmacists', component: PharmacistsComponent},

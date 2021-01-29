@@ -1,3 +1,4 @@
+<nz-alert *ngIf="errorLogin" nzType="error" nzMessage="Error" nzDescription="Your email or password are incorrect!" nzShowIcon> </nz-alert>
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
   <nz-form-item>
     <nz-form-control nzErrorTip="Please input your username!">

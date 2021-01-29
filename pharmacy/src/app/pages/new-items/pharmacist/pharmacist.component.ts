@@ -14,6 +14,8 @@ export class PharmacistComponent implements OnInit {
   validateForm!: FormGroup;
   public pharmacyId: any;
   public user: any;
+  errorRegister: boolean = false;
+
  
   constructor(private router:Router,private fb: FormBuilder, private authService: AuthService) {}
 
@@ -38,12 +40,9 @@ export class PharmacistComponent implements OnInit {
   console.log(body);
   this.authService.registerPharmacist(body).subscribe(data => {
     this.router.navigateByUrl(`homepage`);
-    location.reload();
     
   }, error => {
-    console.log(error);
-  
-    alert('Error')
+    this.errorRegister = true;
   })
   }
 

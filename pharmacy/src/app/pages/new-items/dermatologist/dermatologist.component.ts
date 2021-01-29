@@ -13,6 +13,7 @@ export class DermatologistComponent implements OnInit {
 
   validateForm!: FormGroup;
   public user: any;
+  public username = false;
 
   constructor(private router:Router,private fb: FormBuilder, private authService: AuthService) {}
 
@@ -34,13 +35,9 @@ export class DermatologistComponent implements OnInit {
   }
   console.log(body);
   this.authService.registerDermatologist(body).subscribe(data => {
-    this.router.navigateByUrl(`homepage`);
-    location.reload();
-    
+    this.router.navigateByUrl(`homepage`);    
   }, error => {
-    console.log(error);
-  
-    alert('Error')
+    this.username = true;
   })
   }
 

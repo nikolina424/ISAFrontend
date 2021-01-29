@@ -17,6 +17,8 @@ export class NewPharmacyMedicamentComponent implements OnInit {
   public medicament: any;
   quantity: any;
   public medicamentId: any;
+  public medicamentAdd = false;
+
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private phService: PharmacyMedicamentService, private medicamentService: MedicamentService) { }
 
@@ -53,7 +55,7 @@ export class NewPharmacyMedicamentComponent implements OnInit {
       quantity:this.validateForm.value.quantity
     }
     this.phService.addMedicamentToPharmacy(body).subscribe(data =>{
-      alert('Uspesno dodat lek!');
+      this.medicamentAdd = true;
     })
   }
 }

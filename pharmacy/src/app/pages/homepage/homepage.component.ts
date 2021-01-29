@@ -103,6 +103,10 @@ export class HomepageComponent implements OnInit {
     this.router.navigateByUrl(`homepage/new-items/medicament`);
   }
 
+  public listPharmacies(): void{
+    this.router.navigateByUrl(`homepage/lists/pharmacies`);
+  }
+
 
   public clearStorage(): void {
     localStorage.clear();

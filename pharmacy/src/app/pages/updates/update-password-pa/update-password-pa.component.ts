@@ -13,6 +13,7 @@ export class UpdatePasswordPaComponent implements OnInit {
 
   public user: any;
   validateForm!: FormGroup;
+  public alert = false;
  
   constructor(private router:Router,private fb: FormBuilder, private authService: AuthService) {}
 
@@ -29,13 +30,11 @@ export class UpdatePasswordPaComponent implements OnInit {
   }
   console.log(body);
   this.authService.changePasswordForPharmacyAdmin(this.user.id, body).subscribe(data => {
-    alert('Uspešno ste promenili lozinku!');
+   this.alert = true;
     this.router.navigateByUrl(`homepage`);
     
   }, error => {
     console.log(error);
-  
-    alert('Error')
   })
   }
 

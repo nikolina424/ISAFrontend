@@ -1,3 +1,13 @@
+<nz-alert
+      nzType="success"
+      nzMessage="Success Tips"
+      *ngIf="success"
+      nzDescription="Successfully added dermatologist!"
+      nzShowIcon
+    >
+    </nz-alert>
+<nz-alert nzType="warning" *ngIf="warning" nzMessage="Warning" nzDescription="This dermatologist is not available at this time!" nzShowIcon> </nz-alert>
+<br>
 <label class="labela">You chose dermatologist: </label>
 <label class="ime"><b>{{dermatologist.firstName}} {{dermatologist.lastName}}</b></label>
 
