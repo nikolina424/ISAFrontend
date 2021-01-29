@@ -1,3 +1,12 @@
+import { MedicamentComponent } from './pages/new-items/medicament/medicament.component';
+import { DermatologistComponent } from './pages/new-items/dermatologist/dermatologist.component';
+import { SupplierComponent } from './pages/new-items/supplier/supplier.component';
+import { SystemAdminComponent } from './pages/new-items/system-admin/system-admin.component';
+import { PharmaciesComponent } from './pages/lists/pharmacies/pharmacies.component';
+import { PharmacyAdminComponent } from './pages/new-items/pharmacy-admin/pharmacy-admin.component';
+import { PharmacyAdminService } from './services/pharmacy-admin.service';
+import { PharmacyComponent } from './pages/new-items/pharmacy/pharmacy.component';
+import { UpdatePasswordPaComponent } from './pages/updates/update-password-pa/update-password-pa.component';
 import { UpdatePharmacyAdminComponent } from './pages/updates/update-pharmacy-admin/update-pharmacy-admin.component';
 import { PharmacistComponent } from './pages/new-items/pharmacist/pharmacist.component';
 import { PharmacistService } from './services/pharmacist.service';
@@ -32,14 +41,22 @@ const routes: Routes = [
     {path: 'lists/pharmacists', component: PharmacistsComponent},
     {path: 'lists/medicaments', component: MedicamentsComponent},
     {path: 'lists/new-medicaments', component: NewMedicamentsComponent},
+    {path: 'lists/pharmacies', component: PharmaciesComponent},
     {path: 'updates/update-patient/:id', component:UpdatePatientComponent},
     {path: 'updates/update-pharmacy-medicament/:id', component:UpdatePharmacyMedicamentComponent},
     {path: 'updates/update-pharmacy/:id', component:UpdatePharmacyComponent},
+    {path: 'updates/update-password-pa', component:UpdatePasswordPaComponent},
     {path: 'updates/update-pharmacy-admin/:id', component:UpdatePharmacyAdminComponent},
     {path: 'new-items/allergy', component:AllergyComponent},
     {path: 'new-items/pharmacist', component:PharmacistComponent},
+    {path: 'new-items/dermatologist', component:DermatologistComponent},
+    {path: 'new-items/supplier', component:SupplierComponent},
+    {path: 'new-items/medicament', component:MedicamentComponent},
+    {path: 'new-items/system-admin', component:SystemAdminComponent},
     {path: 'new-items/new-pharmacy-medicament/:id', component:NewPharmacyMedicamentComponent},
-    {path: 'new-items/shift', component:ShiftComponent}
+    {path: 'new-items/shift', component:ShiftComponent},
+    {path: 'new-items/pharmacy', component:PharmacyComponent},
+    {path: 'new-items/pharmacy-admin/:id', component:PharmacyAdminComponent}
   ]}
 ];
 

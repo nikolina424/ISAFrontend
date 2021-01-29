@@ -5,6 +5,11 @@
           <th>Type</th>
           <th>Contraindications</th>
           <th>Ingredients</th>
+          <th>Code</th>
+          <th>Shape</th>
+          <th>Replacement</th>
+          <th>Manufacturer</th>
+          <th>Issuance</th>
           <th>Action</th>
       </tr>
     </thead>
@@ -14,8 +19,13 @@
         <td>{{ medicament.type }}</td>
         <td>{{ medicament.contraindications }}</td>
         <td>{{ medicament.ingredients }}</td>
+        <td>{{ medicament.code }}</td>
+        <td>{{ medicament.shape }}</td>
+        <td>{{ medicament.replacement }}</td>
+        <td>{{ medicament.manufacturer }}</td>
+        <td>{{ medicament.issuance }}</td>
         <td>
-          <a (click)="add(medicament)">Add</a>
+          <a (click)="add(medicament)"><b>Add</b></a>
         </td>
       </tr>
     </tbody>

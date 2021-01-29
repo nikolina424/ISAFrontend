@@ -75,6 +75,34 @@ export class HomepageComponent implements OnInit {
     this.router.navigateByUrl(`homepage/updates/update-pharmacy-admin/${this.user.id}`);
   }
 
+  public changePassword(): void {
+    this.router.navigateByUrl(`homepage/updates/update-password-pa`);
+  }
+
+  public addPharmacy(): void {
+    this.router.navigateByUrl(`homepage/new-items/pharmacy`);
+  }
+
+  public allPharmacies(): void {
+    this.router.navigateByUrl(`homepage/lists/pharmacies`);
+  }
+
+  public addSupplier(): void {
+    this.router.navigateByUrl(`homepage/new-items/supplier`);
+  }
+
+  public addDermatologist(): void {
+    this.router.navigateByUrl(`homepage/new-items/dermatologist`);
+  }
+
+  public addSystemAdmin(): void {
+    this.router.navigateByUrl(`homepage/new-items/system-admin`);
+  }
+
+  public addMedicament(): void{
+    this.router.navigateByUrl(`homepage/new-items/medicament`);
+  }
+
 
   public clearStorage(): void {
     localStorage.clear();

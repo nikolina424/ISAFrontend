@@ -16,4 +16,8 @@ export class MedicamentService {
   public getAllMedicaments(): Observable<any> {
     return this.http.get(`http://localhost:8080/medicaments`);
   }
+
+  public createMedicament(body): Observable<any> {
+    return this.http.post(`http://localhost:8080/medicaments`, body);
+  }
 }

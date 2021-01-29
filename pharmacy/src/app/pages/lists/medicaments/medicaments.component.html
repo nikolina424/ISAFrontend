@@ -32,6 +32,11 @@
           <th>Quantity</th>
           <th>Contraindications</th>
           <th>Ingredients</th>
+          <th>Code</th>
+          <th>Shape</th>
+          <th>Replacement</th>
+          <th>Manufacturer</th>
+          <th>Issuance</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -42,6 +47,11 @@
           <td>{{ pharmacyMedicament.quantity }}</td>
           <td>{{ pharmacyMedicament.medicament.contraindications }}</td>
           <td>{{ pharmacyMedicament.medicament.ingredients }}</td>
+          <td>{{ pharmacyMedicament.medicament.code }}</td>
+          <td>{{ pharmacyMedicament.medicament.shape }}</td>
+          <td>{{ pharmacyMedicament.medicament.replacement }}</td>
+          <td>{{ pharmacyMedicament.medicament.manufacturer }}</td>
+          <td>{{ pharmacyMedicament.medicament.issuance }}</td>
           <td>
             <a (click)="change(pharmacyMedicament.id)" >Change quantity</a>
             <nz-divider nzType="vertical"></nz-divider>

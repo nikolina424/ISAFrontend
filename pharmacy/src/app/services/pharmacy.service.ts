@@ -17,4 +17,12 @@ export class PharmacyService {
   public getPharmacy(id): Observable<any> {
     return this.http.get(`http://localhost:8080/pharmacies/${id}`);
   }
+
+  public registerPharmacy(body): Observable<any> {
+    return this.http.post(`http://localhost:8080/pharmacies/register-pharmacy`, body);
+  }
+
+  public getAllPharmacies(): Observable<any> {
+    return this.http.get('http://localhost:8080/pharmacies')
+  }
 }

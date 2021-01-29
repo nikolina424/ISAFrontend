@@ -73,6 +73,7 @@ export class PharmacistsComponent implements OnInit {
 
   add(): void{
     this.router.navigateByUrl(`homepage/new-items/pharmacist`);
+    
   }
 
 

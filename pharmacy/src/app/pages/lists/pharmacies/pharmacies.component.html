@@ -1,0 +1,20 @@
+<nz-table #basicTable [nzData]="pharmacies">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>About</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pharmacy of pharmacies">
+        <td>{{ pharmacy.name }}</td>
+        <td>{{ pharmacy.about }}</td>
+        <td>{{ pharmacy.address }}</td>
+        <td>
+          <a (click)="createAdmin(pharmacy.id)">Create admin</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table> 

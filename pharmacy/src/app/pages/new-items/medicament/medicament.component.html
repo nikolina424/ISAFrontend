@@ -1,0 +1,88 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="name" nzRequired>
+          <span>Name</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input name!">
+          <input nz-input id="name" formControlName="name" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="code" nzRequired>
+          <span>Code</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input code!">
+          <input nz-input id="code" formControlName="code" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="shape" nzRequired>
+          <span>Shape</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input shape!">
+          <input nz-input id="shape" formControlName="shape" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="type" nzRequired>
+          <span>Type</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input type!">
+          <input nz-input id="type" formControlName="type" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="replacement" nzRequired>
+          <span>Replacement</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input replacement!">
+          <input nz-input id="replacement" formControlName="replacement" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="contraindications" nzRequired>
+            <span>Contraindications</span>
+          </nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input contraindications!">
+            <input nz-input id="contraindications" formControlName="contraindications" />
+          </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="shape" nzRequired>
+            <span>Ingredients</span>
+          </nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input ingredients!">
+            <input nz-input id="ingredients" formControlName="ingredients" />
+          </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="type" nzRequired>
+            <span>Manufacturer</span>
+          </nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input manufacturer!">
+            <input nz-input id="manufacturer" formControlName="manufacturer" />
+          </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="issuance" nzRequired>
+          <span>Issuance</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input issuance!">
+          <input nz-input id="issuance" formControlName="issuance" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="notes" >
+          <span>Notes</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" >
+          <input nz-input id="notes" formControlName="notes" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary" nzGhost>Create medicament</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+

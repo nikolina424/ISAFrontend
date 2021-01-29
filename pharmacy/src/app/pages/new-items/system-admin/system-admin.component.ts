@@ -5,17 +5,17 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-pharmacist',
-  templateUrl: './pharmacist.component.html',
-  styleUrls: ['./pharmacist.component.css']
+  selector: 'app-system-admin',
+  templateUrl: './system-admin.component.html',
+  styleUrls: ['./system-admin.component.css']
 })
-export class PharmacistComponent implements OnInit {
+export class SystemAdminComponent implements OnInit {
 
   validateForm!: FormGroup;
-  public pharmacyId: any;
   public user: any;
- 
+
   constructor(private router:Router,private fb: FormBuilder, private authService: AuthService) {}
+
 
   submitForm(): void {
     for (const i in this.validateForm.controls) {
@@ -27,16 +27,11 @@ export class PharmacistComponent implements OnInit {
       username: this.validateForm.value.username,
       password: this.validateForm.value.password,
       rePassword: this.validateForm.value.rePassword,
-      number: this.validateForm.value.number,
-      address: this.validateForm.value.address,
       firstName: this.validateForm.value.firstName,
-      lastName: this.validateForm.value.lastName,
-      startShift: this.validateForm.value.start,
-      endShift: this.validateForm.value.end,
-      pharmacyId: this.pharmacyId
+      lastName: this.validateForm.value.lastName
   }
   console.log(body);
-  this.authService.registerPharmacist(body).subscribe(data => {
+  this.authService.registerSystemAdmin(body).subscribe(data => {
     this.router.navigateByUrl(`homepage`);
     location.reload();
     
@@ -74,19 +69,12 @@ export class PharmacistComponent implements OnInit {
       password: [null, [Validators.required]],
       rePassword: [null, [Validators.required, this.confirmationValidator]],
       firstName: [null, [Validators.required]],
-      lastName: [null, [Validators.required]],
-      address: [null, [Validators.required]],
-      number: [null, [Validators.required]],
-      start: [null, [Validators.required]],
-      end:  [null, [Validators.required]]
+      lastName: [null, [Validators.required]]
     });
   }
 
   private setupUser(): void {
     this.user = JSON.parse(localStorage.getItem('user')!);
-    this.pharmacyId = this.user.pharmacyId;
   } 
-
-  
 
 }

@@ -1,3 +1,12 @@
+import { MedicamentComponent } from './pages/new-items/medicament/medicament.component';
+import { SupplierComponent } from './pages/new-items/supplier/supplier.component';
+import { SystemAdminComponent } from './pages/new-items/system-admin/system-admin.component';
+import { DermatologistComponent } from './pages/new-items/dermatologist/dermatologist.component';
+import { PharmaciesComponent } from './pages/lists/pharmacies/pharmacies.component';
+import { PharmacyAdminComponent } from './pages/new-items/pharmacy-admin/pharmacy-admin.component';
+import { PharmacyAdminService } from './services/pharmacy-admin.service';
+import { PharmacyComponent } from './pages/new-items/pharmacy/pharmacy.component';
+import { UpdatePasswordPaComponent } from './pages/updates/update-password-pa/update-password-pa.component';
 import { UpdatePharmacyAdminComponent } from './pages/updates/update-pharmacy-admin/update-pharmacy-admin.component';
 import { PharmacistComponent } from './pages/new-items/pharmacist/pharmacist.component';
 import { NewPharmacyMedicamentComponent } from './pages/new-items/new-pharmacy-medicament/new-pharmacy-medicament.component';
@@ -56,7 +65,15 @@ registerLocaleData(en);
     NewMedicamentsComponent,
     NewPharmacyMedicamentComponent,
     PharmacistComponent,
-    UpdatePharmacyAdminComponent
+    UpdatePharmacyAdminComponent,
+    UpdatePasswordPaComponent,
+    PharmacyComponent,
+    PharmacyAdminComponent,
+    PharmaciesComponent,
+    DermatologistComponent,
+    SystemAdminComponent,
+    SupplierComponent,
+    MedicamentComponent
   ],
   imports: [
     BrowserModule,

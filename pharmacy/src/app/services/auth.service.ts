@@ -24,4 +24,24 @@ export class AuthService {
     return this.http.post('http://localhost:8080/auth/register-pharmacist', body)
   }
 
+  public registerSupplier(body): Observable<any> {
+    return this.http.post('http://localhost:8080/auth/register-supplier', body)
+  }
+
+  public registerDermatologist(body): Observable<any> {
+    return this.http.post('http://localhost:8080/auth/register-dermatologist', body)
+  }
+
+  public registerSystemAdmin(body): Observable<any> {
+    return this.http.post('http://localhost:8080/auth/register-system-admin', body)
+  }
+
+  public registerPharmacyAdmin(body): Observable<any> {
+    return this.http.post('http://localhost:8080/auth/register-pharmacy-admin', body)
+  }
+
+  public changePasswordForPharmacyAdmin(id, body): Observable<any> {
+    return this.http.put(`http://localhost:8080/auth/${id}`, body);
+  }
+
 }

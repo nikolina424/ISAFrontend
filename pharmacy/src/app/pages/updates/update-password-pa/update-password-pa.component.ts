@@ -5,15 +5,14 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-pharmacist',
-  templateUrl: './pharmacist.component.html',
-  styleUrls: ['./pharmacist.component.css']
+  selector: 'app-update-password-pa',
+  templateUrl: './update-password-pa.component.html',
+  styleUrls: ['./update-password-pa.component.css']
 })
-export class PharmacistComponent implements OnInit {
+export class UpdatePasswordPaComponent implements OnInit {
 
-  validateForm!: FormGroup;
-  public pharmacyId: any;
   public user: any;
+  validateForm!: FormGroup;
  
   constructor(private router:Router,private fb: FormBuilder, private authService: AuthService) {}
 
@@ -24,21 +23,14 @@ export class PharmacistComponent implements OnInit {
     }
 
   const body = {
-      username: this.validateForm.value.username,
+      oldPassword: this.validateForm.value.oldPassword,
       password: this.validateForm.value.password,
-      rePassword: this.validateForm.value.rePassword,
-      number: this.validateForm.value.number,
-      address: this.validateForm.value.address,
-      firstName: this.validateForm.value.firstName,
-      lastName: this.validateForm.value.lastName,
-      startShift: this.validateForm.value.start,
-      endShift: this.validateForm.value.end,
-      pharmacyId: this.pharmacyId
+      rePassword: this.validateForm.value.rePassword
   }
   console.log(body);
-  this.authService.registerPharmacist(body).subscribe(data => {
+  this.authService.changePasswordForPharmacyAdmin(this.user.id, body).subscribe(data => {
+    alert('Uspešno ste promenili lozinku!');
     this.router.navigateByUrl(`homepage`);
-    location.reload();
     
   }, error => {
     console.log(error);
@@ -70,23 +62,15 @@ export class PharmacistComponent implements OnInit {
   ngOnInit(): void {
     this.setupUser();
     this.validateForm = this.fb.group({
-      username: [null, [Validators.email, Validators.required]],
+      oldPassword: [null, [Validators.email, Validators.required]],
       password: [null, [Validators.required]],
       rePassword: [null, [Validators.required, this.confirmationValidator]],
-      firstName: [null, [Validators.required]],
-      lastName: [null, [Validators.required]],
-      address: [null, [Validators.required]],
-      number: [null, [Validators.required]],
-      start: [null, [Validators.required]],
-      end:  [null, [Validators.required]]
     });
   }
 
   private setupUser(): void {
     this.user = JSON.parse(localStorage.getItem('user')!);
-    this.pharmacyId = this.user.pharmacyId;
   } 
 
-  
 
 }
