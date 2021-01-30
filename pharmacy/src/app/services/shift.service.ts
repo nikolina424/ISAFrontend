@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,6 +16,14 @@ export class ShiftService {
 
   public getAllShiftsByPharmacyId(id):Observable<any> {
     return this.http.get(`http://localhost:8080/shifts/${id}/pharmacy`);
+  }
+
+  public getOneDermatologistOnePharmacyShift(data): Observable<any>{
+    let queryParams = {
+      params : new HttpParams().set('pharmacyId', data["pharmacyId"])
+                               .set('dermatologistId', data["dermatologistId"])
+    } 
+    return this.http.get(`http://localhost:8080/shifts/special-shift`, queryParams);
   }
 
 }

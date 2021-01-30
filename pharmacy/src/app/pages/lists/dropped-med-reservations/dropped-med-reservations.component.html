@@ -1,0 +1,22 @@
+<nz-table #basicTable [nzData]="reservations">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Pharmacy name</th>
+        <th>Final pick date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of reservations">
+        <td>{{ reservation.pharmacyMedicament.medicament.name }}</td>
+        <td>{{reservation.pharmacyMedicament.pharmacy.name}}</td>
+        <td>{{ reservation.dateToPick[2]}}.{{reservation.dateToPick[1]}}.{{reservation.dateToPick[0]}}.</td>
+        <td>
+          <a >Rate pharmacy</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a >Rate medicament</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table> 

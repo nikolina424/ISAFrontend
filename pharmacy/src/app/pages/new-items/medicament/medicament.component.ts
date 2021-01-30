@@ -46,30 +46,13 @@ export class MedicamentComponent implements OnInit {
   })
   }
 
-  updateConfirmValidator(): void {
-    /** wait for refresh value */
-    Promise.resolve().then(() => this.validateForm.controls.checkPassword.updateValueAndValidity());
-  }
-
-  confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
-    if (!control.value) {
-      return { required: true };
-    } 
-    return {};
-  };
-
-  getCaptcha(e: MouseEvent): void {
-    e.preventDefault();
-  }
-
-  
 
   ngOnInit(): void {
     this.setupUser();
     this.validateForm = this.fb.group({
       name: [null, [Validators.required]],
       code: [null, [Validators.required]],
-      shape: [null, [Validators.required, this.confirmationValidator]],
+      shape: [null, [Validators.required]],
       replacement: [null, [Validators.required]],
       type: [null, [Validators.required]],
       contraindications: [null, [Validators.required]],

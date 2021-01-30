@@ -6,21 +6,60 @@
         <li nz-menu-item *ngIf="isPatient" (click)="patientProfile()">Change your profile </li>
         <li nz-menu-item *ngIf="isPatient" (click)="addAllergy()">Add allergy </li>
         <li nz-menu-item *ngIf="isPatient" (click)="listPharmacies()">All pharmacies </li>
+        <li nz-submenu *ngIf="isPatient"  nzTitle="Appointment history">
+          <ul>
+            <li nz-menu-item >Dermatologists</li>
+            <li nz-menu-item >Pharmacists</li>
+          </ul>
+        </li>
+        <li nz-menu-item *ngIf="isPatient">Scheduled appointments </li>
+        <li nz-menu-item *ngIf="isPatient" (click)="searchMeds()">Search medicaments </li>
+        <li nz-submenu *ngIf="isPatient"  nzTitle="Reserved medicaments">
+          <ul>
+            <li nz-menu-item  (click)="activeMedReservations()">Active</li>
+            <li nz-menu-item  (click)="droppedMedReservations()">Dropped</li>
+          </ul>
+        </li>
 
-        <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="updatePharmacy()">Update pharmacy </li>
-        <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="pharmacyAdminProfile()">Update your profile </li>
-        <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="changePassword()">Change your password</li>
+
+        <li nz-submenu *ngIf="isPharmacyAdmin"  nzTitle="Update">
+          <ul>
+            <li nz-menu-item  (click)="updatePharmacy()">Update pharmacy </li>
+        <li nz-menu-item (click)="pharmacyAdminProfile()">Update profile </li>
+        <li nz-menu-item (click)="changePassword()">Change password</li>
+          </ul>
+        </li>
+        <li nz-submenu *ngIf="isPharmacyAdmin"  nzTitle="Create">
+          <ul>
+            <li nz-menu-item (click)="createFreeAppointment()">Available appointment</li>
+            <li nz-menu-item >Purchase order</li>
+            <li nz-menu-item >Actions</li>
+            <li nz-menu-item >Promotions</li>
+          </ul>
+        </li>
+        <li nz-menu-item *ngIf="isPharmacyAdmin">All purchase orders</li>
+        <li nz-menu-item *ngIf="isPharmacyAdmin">All inquiries</li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="editDermatologists()">Edit dermatologists</li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="editMedicaments()">Edit medicaments </li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="editPharmacists()">Edit pharmacists </li>
+        <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="createFreeAppointment()">Create available appointment</li>
+        <li nz-menu-item *ngIf="isPharmacyAdmin" >Bussiness report</li>
+
+
 
         <li nz-menu-item *ngIf="isSystemAdmin" (click)="registrationRequests()">Registration requests</li>
-        <li nz-menu-item *ngIf="isSystemAdmin" (click)="addPharmacy()">Add pharmacy</li>
+        <li nz-submenu *ngIf="isSystemAdmin"  nzTitle="Add employees">
+          <ul>
+            <li nz-menu-item  (click)="addDermatologist()">Add dermatologist</li>
+            <li nz-menu-item  (click)="addSupplier()">Add supplier</li>
+            <li nz-menu-item  (click)="addSystemAdmin()">Add system admin</li>
+          </ul>
+        </li>
         <li nz-menu-item *ngIf="isSystemAdmin" (click)="allPharmacies()">All pharmacies</li>
-        <li nz-menu-item *ngIf="isSystemAdmin" (click)="addDermatologist()">Add dermatologist</li>
-        <li nz-menu-item *ngIf="isSystemAdmin" (click)="addSupplier()">Add supplier</li>
-        <li nz-menu-item *ngIf="isSystemAdmin" (click)="addSystemAdmin()">Add system admin</li>
+        <li nz-menu-item *ngIf="isSystemAdmin" (click)="addPharmacy()">Add pharmacy</li>
         <li nz-menu-item *ngIf="isSystemAdmin" (click)="addMedicament()">Add medicament</li>
+        <li nz-menu-item *ngIf="isSystemAdmin" >All complaints</li>
+        <li nz-menu-item *ngIf="isSystemAdmin">Define loyalty program</li>
         <li nz-menu-item (click)="clearStorage()">Logout</li>
       </ul>
     </nz-header>

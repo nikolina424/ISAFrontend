@@ -40,6 +40,7 @@ export class SearchPharmaciesComponent implements OnInit {
     let data = {
       name: this.validateForm.value.name == null ? "" : this.validateForm.value.name
     }
+    console.log(data);
     this.searchService.searchPharmacies(data).subscribe(data => {
      this.pharmacies = data.pharmacyResponses;
      console.log(data);

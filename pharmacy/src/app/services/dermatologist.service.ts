@@ -16,4 +16,8 @@ export class DermatologistService {
   public getDermatologistById(id): Observable<any> {
     return this.http.get(`http://localhost:8080/dermatologists/${id}`);
   }
+
+  public getAllDermatologistByPharmacyId(id): Observable<any> {
+    return this.http.get(`http://localhost:8080/dermatologists/${id}/pharmacy`);
+  }
 }

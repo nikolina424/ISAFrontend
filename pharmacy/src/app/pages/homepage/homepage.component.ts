@@ -107,10 +107,25 @@ export class HomepageComponent implements OnInit {
     this.router.navigateByUrl(`homepage/lists/pharmacies`);
   }
 
+  public createFreeAppointment(): void{
+    this.router.navigateByUrl(`homepage/lists/pharmacy-dermatologists`);
+  }
+
+  public searchMeds(): void {
+    this.router.navigateByUrl(`homepage/lists/search-medicaments`);
+  }
 
   public clearStorage(): void {
     localStorage.clear();
     this.router.navigateByUrl('frontpage');
+  }
+
+  public droppedMedReservations(): void{
+    this.router.navigateByUrl(`homepage/lists/dropped-med-reservations/${this.user.id}`);
+  }
+
+  public activeMedReservations(): void {
+    this.router.navigateByUrl(`homepage/lists/active-med-reservations/${this.user.id}`);
   }
 
 }

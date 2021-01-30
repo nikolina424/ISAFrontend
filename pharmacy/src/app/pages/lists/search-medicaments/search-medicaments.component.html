@@ -36,6 +36,7 @@
               <th>Replacement</th>
               <th>Manufacturer</th>
               <th>Issuance</th>
+              <th *ngIf="isPatient">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -49,6 +50,7 @@
             <td>{{ medicament.replacement }}</td>
             <td>{{ medicament.manufacturer }}</td>
             <td>{{ medicament.issuance }}</td>
+            <a *ngIf="isPatient" (click)="checkAvailability(medicament.id)"><b>Availability</b></a>
           </tr>
         </tbody>
       </nz-table> 

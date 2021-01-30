@@ -1,3 +1,4 @@
+import { DermatologistAppointmentService } from './../../services/dermatologist-appointment.service';
 import { PharmacyMedicamentService } from './../../services/pharmacy-medicament.service';
 import { PharmacistService } from './../../services/pharmacist.service';
 import { DermatologistService } from './../../services/dermatologist.service';
@@ -17,28 +18,60 @@ export class ProfilePharmacyComponent implements OnInit {
   public id: any;
   public pharmacy: any;
   public shifts: [];
+  public appointments= [] as  any;
   public dermatologist: any;
   public dermatologists= [] as  any;
   public pharmacists = [];
   public pharmacyMedicaments = [];
-  constructor(private pmService: PharmacyMedicamentService, private pharmacistService: PharmacistService, private dermatologistService: DermatologistService, private route: ActivatedRoute, private pharmacyService: PharmacyService, private shiftService: ShiftService) { }
+  public isPatient: boolean = false;
+  public isDermatologist: boolean = false;
+  public isPharmacist: boolean = false;
+  public isSystemAdmin: boolean = false;
+  public isPharmacyAdmin: boolean = false;
+  public user: any;
+
+  constructor(private daService: DermatologistAppointmentService, private pmService: PharmacyMedicamentService, private pharmacistService: PharmacistService, private dermatologistService: DermatologistService, private route: ActivatedRoute, private pharmacyService: PharmacyService, private shiftService: ShiftService) { }
 
   ngOnInit(): void {
+    this.setupUser();
+    this.setupUserType();
     this.setUpPharmacy();
     this.setUpPharmacists();
     this.setUpPharmacyMedicaments();
+    this.setUpAppointments();
  
+  }
+  private setupUser(): void {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  } 
+  
+  private setupUserType(): void {
+    if(this.user === null){
+
+    }else{
+      if(this.user.userRole === 'SYSTEM_ADMIN'){
+        this.isSystemAdmin = true;
+      }else if(this.user.userRole === 'PHARMACY_ADMIN'){
+        this.isPharmacyAdmin = true;
+      }else if(this.user.userRole === 'PHARMACIST'){
+        this.isPharmacist = true;
+      }else if(this.user.userRole === 'DERMATOLOGIST'){
+        this.isDermatologist = true;
+      }else if(this.user.userRole === 'PATIENT'){
+        this.isPatient = true;
+      }
+      
+    }
+   
   }
 
   setUpPharmacy(): void{
     this.id = this.route.snapshot.params.id;
     this.pharmacyService.getPharmacy(this.id).subscribe(data =>{
         this.pharmacy = data;
-        console.log(this.pharmacy);
     })
     this.shiftService.getAllShiftsByPharmacyId(this.id).subscribe(data =>{
       this.shifts = data;
-      console.log(data);
       this.setUpDermatologists(this.shifts);
   })
  
@@ -65,11 +98,16 @@ export class ProfilePharmacyComponent implements OnInit {
     this.id = this.route.snapshot.params.id;
     this.pmService.getAllMedicamentsByPharmacyId(this.id).subscribe(data =>{
       this.pharmacyMedicaments = data;
-      console.log(data);
-      console.log("Moji lekovi");
-      console.log(this.pharmacyMedicaments);
     })
    
+  }
+
+  setUpAppointments(): void {
+    this.id = this.route.snapshot.params.id;
+    this.daService.getAllExaminationsByPharmacyId(this.id).subscribe(data =>{
+      this.appointments = data;
+      console.log(data);
+    })
   }
 
 }

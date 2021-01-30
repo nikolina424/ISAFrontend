@@ -13,15 +13,30 @@ export class SearchMedicamentsComponent implements OnInit {
 
   public medicaments = [];
   validateForm!: FormGroup;
+  public isPatient: boolean = false;
+  public user: any;
 
   constructor(private router: Router,private medicamentService: MedicamentService, private searchService: SearchService, private mService: MedicamentService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getAllMedicaments();
+    this.setupUser();
+    this.setupUserType();
     this.validateForm = this.fb.group({
       name: [""],
       type: [""]
     });
+  }
+
+  private setupUser(): void {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  } 
+  
+  private setupUserType(): void {
+   if(this.user.userRole === 'PATIENT'){
+      this.isPatient = true;
+    }
+    
   }
 
   private getAllMedicaments(): void {
@@ -45,7 +60,6 @@ export class SearchMedicamentsComponent implements OnInit {
     this.searchService.searchMedicaments(data).subscribe(data => {
       console.log(data);
      this.medicaments = data.medicamentResponses;
-     console.log("Ovo su filtrirani");
     }, error => {
      
     })
@@ -54,6 +68,10 @@ export class SearchMedicamentsComponent implements OnInit {
   resetForm(): void {
     this.validateForm.reset();
     this.getAllMedicaments();
+  }
+
+  checkAvailability(id): void {
+    this.router.navigateByUrl(`homepage/lists/medicament-pharmacies/${id}`);
   }
 
 }

@@ -1,0 +1,18 @@
+<nz-table #basicTable [nzData]="reservations">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Pharmacy name</th>
+        <th>Final pick date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of reservations">
+        <td>{{ reservation.pharmacyMedicament.medicament.name }}</td>
+        <td>{{reservation.pharmacyMedicament.pharmacy.name}}</td>
+        <td>{{ reservation.dateToPick[2]}}.{{reservation.dateToPick[1]}}.{{reservation.dateToPick[0]}}.</td>
+        <td>{{reservation.medicamentReservationStatus}}</td>
+      </tr>
+    </tbody>
+  </nz-table> 

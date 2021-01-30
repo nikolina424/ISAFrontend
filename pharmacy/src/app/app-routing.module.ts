@@ -1,3 +1,7 @@
+import { DroppedMedReservationsComponent } from './pages/lists/dropped-med-reservations/dropped-med-reservations.component';
+import { ActiveMedReservationsComponent } from './pages/lists/active-med-reservations/active-med-reservations.component';
+import { DermatologistAvailableAppointmentComponent } from './pages/new-items/dermatologist-available-appointment/dermatologist-available-appointment.component';
+import { PharmacyDermatologistsComponent } from './pages/lists/pharmacy-dermatologists/pharmacy-dermatologists.component';
 import { ProfilePharmacyComponent } from './pages/profile-pharmacy/profile-pharmacy.component';
 import { MedicamentComponent } from './pages/new-items/medicament/medicament.component';
 import { DermatologistComponent } from './pages/new-items/dermatologist/dermatologist.component';
@@ -30,6 +34,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { SearchMedicamentsComponent } from './pages/lists/search-medicaments/search-medicaments.component';
 import { SearchPharmaciesComponent } from './pages/lists/search-pharmacies/search-pharmacies.component';
+import { MedicamentPharmaciesComponent } from './pages/lists/medicament-pharmacies/medicament-pharmacies.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'frontpage/lists/search-pharmacies'},
@@ -50,6 +55,11 @@ const routes: Routes = [
     {path: 'lists/medicaments', component: MedicamentsComponent},
     {path: 'lists/new-medicaments', component: NewMedicamentsComponent},
     {path: 'lists/pharmacies', component: PharmaciesComponent},
+    {path: 'lists/pharmacy-dermatologists', component: PharmacyDermatologistsComponent},
+    {path: 'lists/search-medicaments', component: SearchMedicamentsComponent},
+    {path: 'lists/active-med-reservations/:id', component: ActiveMedReservationsComponent},
+    {path: 'lists/dropped-med-reservations/:id', component: DroppedMedReservationsComponent},
+    {path: 'lists/medicament-pharmacies/:id', component: MedicamentPharmaciesComponent},
     {path: 'updates/update-patient/:id', component:UpdatePatientComponent},
     {path: 'updates/update-pharmacy-medicament/:id', component:UpdatePharmacyMedicamentComponent},
     {path: 'updates/update-pharmacy/:id', component:UpdatePharmacyComponent},
@@ -57,6 +67,7 @@ const routes: Routes = [
     {path: 'updates/update-pharmacy-admin/:id', component:UpdatePharmacyAdminComponent},
     {path: 'new-items/allergy', component:AllergyComponent},
     {path: 'new-items/pharmacist', component:PharmacistComponent},
+    {path: 'new-items/dermatologist-available-appointment/:id', component:DermatologistAvailableAppointmentComponent},
     {path: 'new-items/dermatologist', component:DermatologistComponent},
     {path: 'new-items/supplier', component:SupplierComponent},
     {path: 'new-items/medicament', component:MedicamentComponent},

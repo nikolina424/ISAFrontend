@@ -37,6 +37,7 @@
         <th>Shape</th>
         <th>Manufacturer</th>
         <th>Issuance</th>
+        <th *ngIf="isPatient">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -48,10 +49,10 @@
         <td>{{ pharmacyMedicament.medicament.shape }}</td>
         <td>{{ pharmacyMedicament.medicament.manufacturer }}</td>
         <td>{{ pharmacyMedicament.medicament.issuance }}</td>
+        <a *ngIf="isPatient"><b>Reserve</b></a>
       </tr>
     </tbody>
   </nz-table> 
-
 <br>
 <label class="nzm"><b>Dermatologists in this pharmacy:</b></label>
 <nz-table #basicTable [nzData]="dermatologists">
@@ -70,4 +71,30 @@
       </tr>
     </tbody>
   </nz-table> 
+  <br>
+<label class="nzm"><b>Available appointments:</b></label>
+<nz-table #basicTable [nzData]="appointments">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Date</th>
+      <th>Appointment start</th>
+      <th>Appointment end</th>
+      <th>Price</th>
+      <th *ngIf="isPatient">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let appointment of appointments">
+      <td>{{ appointment.dermatologist.firstName }}</td>
+      <td>{{ appointment.dermatologist.lastName }}</td>
+      <td>{{appointment.dateExamination[2]}}.{{appointment.dateExamination[1]}}.{{appointment.dateExamination[0]}}.</td>
+      <td>{{appointment.startTimeExamination[0]}}:{{appointment.startTimeExamination[1]}}0</td>
+      <td>{{appointment.endTimeExamination[0]}}:{{appointment.endTimeExamination[1]}}0</td>
+      <td>{{ appointment.price }} $</td>
+      <a *ngIf="isPatient"><b>Reserve</b></a>
+    </tr>
+  </tbody>
+</nz-table> 
   

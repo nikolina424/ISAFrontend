@@ -1,0 +1,55 @@
+<nz-alert nzType="error" *ngIf="notCreated" nzMessage="Error" nzDescription="Dermatologist is not available at chosen time!" nzShowIcon> </nz-alert>
+<nz-alert
+nzType="success"
+*ngIf="created"
+nzMessage="Success "
+nzDescription="Successfully created appointment!"
+nzShowIcon
+>
+</nz-alert>
+
+<label class="shift"> <b>Shift for {{dermatologist.firstName}} {{dermatologist.lastName}} is {{shift.startShift[0]}}:{{shift.startShift[1]}}0-{{shift.endShift[0]}}:{{shift.endShift[1]}}0 </b></label>
+
+
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <br>  
+    <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="dateExamination" nzRequired>
+            <span>Date</span>
+          </nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input date!">
+            <input nz-input id="dateExamination" formControlName="dateExamination" />
+          </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="startTimeExamination" nzRequired>
+            <span>Starting time for appointment</span>
+          </nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input start time!">
+            <input nz-input id="startTimeExamination" formControlName="startTimeExamination" />
+          </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="endTimeExamination" nzRequired>
+            <span>Ending time for appointment</span>
+          </nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input end time!">
+            <input nz-input id="endTimeExamination" formControlName="endTimeExamination" />
+          </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="price" nzRequired>
+            <span>Price</span>
+          </nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input price!">
+            <input nz-input id="price" formControlName="price" />
+          </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary" [disabled]="!validateForm.valid" nzGhost>Create available appointment</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  
+  

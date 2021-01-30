@@ -25,4 +25,8 @@ export class PharmacyService {
   public getAllPharmacies(): Observable<any> {
     return this.http.get('http://localhost:8080/pharmacies')
   }
+
+  public getPharmaciesByMedicamentId(id):Observable<any> {
+    return this.http.get(`http://localhost:8080/pharmacies/medicament/${id}`)
+  }
 }
