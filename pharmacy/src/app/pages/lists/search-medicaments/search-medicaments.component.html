@@ -51,7 +51,7 @@
             <td>{{ medicament.replacement }}</td>
             <td>{{ medicament.manufacturer }}</td>
             <td>{{ medicament.issuance }}</td>
-            <td>{{ medicament.rating}}</td>
+            <td>{{ medicament.rating.toFixed(2)}}</td>
             <a *ngIf="isPatient" (click)="checkAvailability(medicament.id)"><b>Availability</b></a>
           </tr>
         </tbody>

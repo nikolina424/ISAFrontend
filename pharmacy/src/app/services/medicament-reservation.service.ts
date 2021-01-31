@@ -16,4 +16,12 @@ export class MedicamentReservationService {
   public getDroppedByPatientId(id): Observable<any> {
     return this.http.get(`http://localhost:8080/medicament-reservations/dropped/${id}/patient`);
   }
+
+  public cancelReservation(body): Observable<any> {
+    return this.http.put(`http://localhost:8080/medicament-reservations/cancel`, body);
+  }
+
+  public createReservation(body): Observable<any> {
+    return this.http.post(`http://localhost:8080/medicament-reservations`, body);
+  }
 }

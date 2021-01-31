@@ -43,7 +43,7 @@
           <td>{{ pharmacist.lastName }}</td>
           <td>{{ pharmacist.number }}</td>
           <td>{{ pharmacist.address }}</td>
-          <td>{{ pharmacist.rating }}</td>
+          <td>{{ pharmacist.rating.toFixed(2) }}</td>
           <td>
             <a (click)="remove(pharmacist.id)">Remove</a>
           </td>

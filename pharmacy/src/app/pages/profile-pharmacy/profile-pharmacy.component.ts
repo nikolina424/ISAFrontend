@@ -5,7 +5,7 @@ import { DermatologistService } from './../../services/dermatologist.service';
 import { ShiftService } from './../../services/shift.service';
 import { ShiftComponent } from './../new-items/shift/shift.component';
 import { PharmacyService } from './../../services/pharmacy.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -30,7 +30,7 @@ export class ProfilePharmacyComponent implements OnInit {
   public isPharmacyAdmin: boolean = false;
   public user: any;
 
-  constructor(private daService: DermatologistAppointmentService, private pmService: PharmacyMedicamentService, private pharmacistService: PharmacistService, private dermatologistService: DermatologistService, private route: ActivatedRoute, private pharmacyService: PharmacyService, private shiftService: ShiftService) { }
+  constructor(private router: Router, private daService: DermatologistAppointmentService, private pmService: PharmacyMedicamentService, private pharmacistService: PharmacistService, private dermatologistService: DermatologistService, private route: ActivatedRoute, private pharmacyService: PharmacyService, private shiftService: ShiftService) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -108,6 +108,10 @@ export class ProfilePharmacyComponent implements OnInit {
       this.appointments = data;
       console.log(data);
     })
+  }
+
+  reserveMedicament(id): void{
+    this.router.navigateByUrl(`homepage/new-items/medicament-reservation/${id}`);
   }
 
 }

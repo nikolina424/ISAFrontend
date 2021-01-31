@@ -1,3 +1,5 @@
+import { MedicamentReservationComponent } from './pages/new-items/medicament-reservation/medicament-reservation.component';
+import { BussinessReportComponent } from './pages/bussiness-report/bussiness-report.component';
 import { DroppedMedReservationsComponent } from './pages/lists/dropped-med-reservations/dropped-med-reservations.component';
 import { ActiveMedReservationsComponent } from './pages/lists/active-med-reservations/active-med-reservations.component';
 import { DermatologistAvailableAppointmentComponent } from './pages/new-items/dermatologist-available-appointment/dermatologist-available-appointment.component';
@@ -89,7 +91,9 @@ registerLocaleData(en);
     DermatologistAvailableAppointmentComponent,
     MedicamentPharmaciesComponent,
     ActiveMedReservationsComponent,
-    DroppedMedReservationsComponent
+    DroppedMedReservationsComponent,
+    BussinessReportComponent,
+    MedicamentReservationComponent
   ],
   imports: [
     BrowserModule,

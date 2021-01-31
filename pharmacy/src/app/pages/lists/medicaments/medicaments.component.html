@@ -53,7 +53,7 @@
           <td>{{ pharmacyMedicament.medicament.replacement }}</td>
           <td>{{ pharmacyMedicament.medicament.manufacturer }}</td>
           <td>{{ pharmacyMedicament.medicament.issuance }}</td>
-          <td>{{ pharmacyMedicament.medicament.rating }}</td>
+          <td>{{ pharmacyMedicament.medicament.rating.toFixed(2) }}</td>
           <td>
             <a (click)="change(pharmacyMedicament.id)" >Change quantity</a>
             <nz-divider nzType="vertical"></nz-divider>

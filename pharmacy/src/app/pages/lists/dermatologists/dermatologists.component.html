@@ -46,7 +46,7 @@
         <td>{{ dermatologist.lastName }}</td>
         <td>{{ dermatologist.number }}</td>
         <td>{{ dermatologist.address }}</td>
-        <td>{{ dermatologist.rating}}</td>
+        <td>{{ dermatologist.rating.toFixed(2)}}</td>
         <td>
           <a (click)="add(dermatologist.id)">Add</a>
           <nz-divider nzType="vertical"></nz-divider>

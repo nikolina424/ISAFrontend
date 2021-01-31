@@ -128,4 +128,8 @@ export class HomepageComponent implements OnInit {
     this.router.navigateByUrl(`homepage/lists/active-med-reservations/${this.user.id}`);
   }
 
+  public bussinessReport(): void{
+    this.router.navigateByUrl(`homepage/bussiness-report/${this.user.pharmacyId}`);
+  }
+
 }

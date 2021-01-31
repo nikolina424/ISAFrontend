@@ -11,6 +11,7 @@ export class ActiveMedReservationsComponent implements OnInit {
 
   public patientId: any;
   public reservations= [] as  any;
+  public check = true;
 
   constructor(private route: ActivatedRoute, private mrService: MedicamentReservationService) { }
 
@@ -27,4 +28,18 @@ export class ActiveMedReservationsComponent implements OnInit {
 
   }
 
+  cancel(id): void{
+    let body = {
+      id: id
+    }
+    this.mrService.cancelReservation(body).subscribe(data =>{
+        this.check = data;
+        if(this.check === true){
+        
+          location.reload();
+        }
+       
+        console.log(data);
+    })
+  }
 }

@@ -53,7 +53,7 @@
         <td>{{ pharmacyMedicament.medicament.shape }}</td>
         <td>{{ pharmacyMedicament.medicament.manufacturer }}</td>
         <td>{{ pharmacyMedicament.medicament.issuance }}</td>
-        <a *ngIf="isPatient"><b>Reserve</b></a>
+        <a *ngIf="isPatient" (click)="reserveMedicament(pharmacyMedicament.id)"><b>Reserve</b></a>
       </tr>
     </tbody>
   </nz-table> 

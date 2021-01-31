@@ -71,13 +71,14 @@ export class DermatologistAvailableAppointmentComponent implements OnInit {
       dermatologistId: parseInt(this.dermatologistId),
       startTimeExamination: this.validateForm.value.startTimeExamination == null ? "" : this.validateForm.value.startTimeExamination,
       endTimeExamination: this.validateForm.value.endTimeExamination == null ? "" : this.validateForm.value.endTimeExamination,
-      price: this.price,
+      price: this.validateForm.value.price == 0 ? 0 : this.validateForm.value.price,
       dateExamination:this.validateForm.value.dateExamination == null ? "" : this.validateForm.value.dateExamination
-//this.validateForm.value.price == 0 ? 0 : this.validateForm.value.price
     }
-    //console.log(data);
+    console.log(data);
     this.daService.createAvailableExamination(data).subscribe(data => {
       this.created = true;
+      this.notCreated = false;
+
      }, error => {
       this.notCreated = true;
      })
