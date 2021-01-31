@@ -33,10 +33,15 @@ export class SearchMedicamentsComponent implements OnInit {
   } 
   
   private setupUserType(): void {
-   if(this.user.userRole === 'PATIENT'){
-      this.isPatient = true;
+    if(this.user == null){
+
+    }else{
+      if(this.user.userRole === 'PATIENT'){
+        this.isPatient = true;
+      }
+      
     }
-    
+   
   }
 
   private getAllMedicaments(): void {

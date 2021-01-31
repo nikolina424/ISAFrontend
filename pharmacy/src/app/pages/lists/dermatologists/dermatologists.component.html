@@ -35,6 +35,7 @@
         <th>Last name</th>
         <th>Number</th>
         <th>Address</th>
+        <th>Rating</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -45,6 +46,7 @@
         <td>{{ dermatologist.lastName }}</td>
         <td>{{ dermatologist.number }}</td>
         <td>{{ dermatologist.address }}</td>
+        <td>{{ dermatologist.rating}}</td>
         <td>
           <a (click)="add(dermatologist.id)">Add</a>
           <nz-divider nzType="vertical"></nz-divider>

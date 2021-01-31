@@ -36,6 +36,7 @@
               <th>Replacement</th>
               <th>Manufacturer</th>
               <th>Issuance</th>
+              <th>Rating</th>
               <th *ngIf="isPatient">Actions</th>
           </tr>
         </thead>
@@ -50,6 +51,7 @@
             <td>{{ medicament.replacement }}</td>
             <td>{{ medicament.manufacturer }}</td>
             <td>{{ medicament.issuance }}</td>
+            <td>{{ medicament.rating}}</td>
             <a *ngIf="isPatient" (click)="checkAvailability(medicament.id)"><b>Availability</b></a>
           </tr>
         </tbody>

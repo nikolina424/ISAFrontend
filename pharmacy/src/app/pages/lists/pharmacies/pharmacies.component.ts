@@ -40,6 +40,7 @@ export class PharmaciesComponent implements OnInit {
   private getAllPharmacies(): void {
     this.pharmacyService.getAllPharmacies().subscribe(data => {
       this.pharmacies = data;
+      console.log(data);
     }, error => {
       
     })

@@ -4,18 +4,20 @@
         <th>Name</th>
         <th>Pharmacy name</th>
         <th>Final pick date</th>
-        <th>Action</th>
+        <th>Rate pharmacy</th>
+        <th>Rate medicament</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let reservation of reservations">
+      <tr *ngFor="let reservation of reservations; let i = index" [attr.data-index]="i">
         <td>{{ reservation.pharmacyMedicament.medicament.name }}</td>
         <td>{{reservation.pharmacyMedicament.pharmacy.name}}</td>
         <td>{{ reservation.dateToPick[2]}}.{{reservation.dateToPick[1]}}.{{reservation.dateToPick[0]}}.</td>
         <td>
-          <a >Rate pharmacy</a>
-          <nz-divider nzType="vertical"></nz-divider>
-          <a >Rate medicament</a>
+          <nz-rate [disabled]="ratingsPharmacy[i].done" [(ngModel)]="ratingsPharmacy[i].value" (click)="ratePharmacy(reservation.pharmacyMedicament.pharmacy.id, reservation.pharmacyMedicament.medicament.id )" [nzTooltips]="tooltips"></nz-rate>
+        </td>
+        <td>
+          <nz-rate [disabled]="ratingsMedicament[i].done" [(ngModel)]="ratingsMedicament[i].value" (click)="rateMedicament(reservation.pharmacyMedicament.medicament.id)" [nzTooltips]="tooltips" ></nz-rate>
         </td>
       </tr>
     </tbody>

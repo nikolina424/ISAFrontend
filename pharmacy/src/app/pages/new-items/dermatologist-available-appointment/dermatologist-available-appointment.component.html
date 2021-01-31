@@ -42,7 +42,7 @@ nzShowIcon
             <span>Price</span>
           </nz-form-label>
           <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input price!">
-            <input nz-input id="price" formControlName="price" />
+            <nz-input-number formControlName="price" [nzMin]="0" [nzMax]="3000000" [nzStep]="1"></nz-input-number>
           </nz-form-control>
       </nz-form-item>
       <nz-form-item nz-row class="register-area">

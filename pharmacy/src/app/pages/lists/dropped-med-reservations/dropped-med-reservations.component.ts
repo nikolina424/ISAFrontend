@@ -1,3 +1,4 @@
+import { RatingService } from './../../../services/rating.service';
 import { ActivatedRoute } from '@angular/router';
 import { MedicamentReservationService } from './../../../services/medicament-reservation.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,8 +12,16 @@ export class DroppedMedReservationsComponent implements OnInit {
 
   public patientId: any;
   public reservations= [] as  any;
+  tooltips = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+  public ratings = [];
+  value = 0;
+  savedId: any;
+  savedReservations= [] as any;
+  ratingsMedicament = [] as any;
+  ratingsPharmacy = [] as any;
 
-  constructor(private route: ActivatedRoute, private mrService: MedicamentReservationService) { }
+
+  constructor(private ratingService: RatingService, private route: ActivatedRoute, private mrService: MedicamentReservationService) { }
 
   ngOnInit(): void {
     this.setupReservations();
@@ -21,10 +30,69 @@ export class DroppedMedReservationsComponent implements OnInit {
   setupReservations(): void{
     this.patientId = this.route.snapshot.params.id;
     this.mrService.getDroppedByPatientId(this.patientId).subscribe(data => {
-        this.reservations = data;
-        console.log(data);
+        data.forEach(reservation => {
+          this.reservations.push(reservation);
+         
+          let ratingMed = {
+            medId: reservation.pharmacyMedicament.medicament.id,
+            value: 0,
+            done: false
+          }
+          let ratingPharmacy = {
+            pharmacyId: reservation.pharmacyMedicament.pharmacy.id,
+            medicamentId: reservation.pharmacyMedicament.medicament.id,
+            value: 0,
+            done: false
+          }
+          this.ratingsMedicament.push(ratingMed);
+          this.ratingsPharmacy.push(ratingPharmacy);
+        });
+        console.log(this.reservations);
+        //console.log(this.ratingsMedicament);
+        //console.log(this.ratingsPharmacy);
     })
 
+  }
+
+  rateMedicament(medicamentId): void {
+    console.log(medicamentId);
+    let grade;
+    this.ratingsMedicament.forEach(rating => {
+      if(medicamentId === rating.medId){
+        grade = rating.value;
+        rating.done = true;
+      }
+    });
+    let body = {
+      id: medicamentId,
+      grade: grade
+    }
+    this.ratingService.rateMedicament(body).subscribe(data => {
+      console.log("Uspesno");
+    }, error => {
+      alert("Error");
+    })
+  }
+
+  ratePharmacy(pharmacyId, medicamentId): void {
+    let grade;
+    this.ratingsPharmacy.forEach(rating => {
+      if(pharmacyId === rating.pharmacyId){
+        if(medicamentId === rating.medicamentId){
+          grade = rating.value;
+          rating.done = true;
+        }
+      }
+    });
+    let body = {
+      id: pharmacyId,
+      grade: grade
+    }
+    this.ratingService.ratePharmacy(body).subscribe(data => {
+      console.log("Uspesno");
+    }, error => {
+      alert("Error");
+    })
   }
 
 

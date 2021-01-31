@@ -4,6 +4,7 @@
         <th>Name</th>
         <th>About</th>
         <th>Address</th>
+        <th>Rating</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -12,6 +13,7 @@
         <td>{{ pharmacy.name }}</td>
         <td>{{ pharmacy.about }}</td>
         <td>{{ pharmacy.address }}</td>
+        <td>{{ pharmacy.rating }}</td>
         <td>
           <a *ngIf="isSystemAdmin" (click)="createAdmin(pharmacy.id)">Create admin</a>
           <a *ngIf="isPatient" (click)="viewProfile(pharmacy.id)">View profile</a>

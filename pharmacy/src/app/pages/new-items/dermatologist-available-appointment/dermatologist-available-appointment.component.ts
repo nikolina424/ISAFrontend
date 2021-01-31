@@ -20,6 +20,7 @@ export class DermatologistAvailableAppointmentComponent implements OnInit {
   validateForm!: FormGroup;
   public created = false;
   public notCreated = false;
+  price: number = 0;
 
 
   constructor(private daService: DermatologistAppointmentService, private fb: FormBuilder, private dermatologistService: DermatologistService, private route: ActivatedRoute, private shiftService: ShiftService) { }
@@ -31,7 +32,7 @@ export class DermatologistAvailableAppointmentComponent implements OnInit {
       startTimeExamination: [null, [Validators.required]],
       endTimeExamination: [null, [Validators.required]],
       dateExamination: [null, [Validators.required]],
-      price: [null, [Validators.required]]
+      price: [0, [Validators.required]]
     });
   }
 
@@ -67,14 +68,14 @@ export class DermatologistAvailableAppointmentComponent implements OnInit {
 
     let data = {
       pharmacyId: this.pharmacyId,
-      dermatologistId: this.dermatologistId,
+      dermatologistId: parseInt(this.dermatologistId),
       startTimeExamination: this.validateForm.value.startTimeExamination == null ? "" : this.validateForm.value.startTimeExamination,
       endTimeExamination: this.validateForm.value.endTimeExamination == null ? "" : this.validateForm.value.endTimeExamination,
-      price: this.validateForm.value.price == null ? "" : this.validateForm.value.price,
-      dateExamination:this.validateForm.value.dateExamination == null ? "" : this.validateForm.value.dateExamination,
-
+      price: this.price,
+      dateExamination:this.validateForm.value.dateExamination == null ? "" : this.validateForm.value.dateExamination
+//this.validateForm.value.price == 0 ? 0 : this.validateForm.value.price
     }
-    console.log(data);
+    //console.log(data);
     this.daService.createAvailableExamination(data).subscribe(data => {
       this.created = true;
      }, error => {
