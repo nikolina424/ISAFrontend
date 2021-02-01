@@ -1,3 +1,11 @@
+<nz-alert
+nzType="success"
+*ngIf="reserveDermatologist"
+nzMessage="Success"
+nzDescription="You made reservation successfully! Check your email!"
+nzShowIcon
+>
+</nz-alert>
 <h1 class="name">{{pharmacy.name}}</h1>
 <label class="nzm"><b>Address:</b> </label>
 <br>
@@ -97,7 +105,7 @@
       <td>{{appointment.startTimeExamination[0]}}:{{appointment.startTimeExamination[1]}}0</td>
       <td>{{appointment.endTimeExamination[0]}}:{{appointment.endTimeExamination[1]}}0</td>
       <td>{{ appointment.price }} $</td>
-      <a *ngIf="isPatient"><b>Reserve</b></a>
+      <a *ngIf="isPatient" (click)="reserveDermatologistAppointment(appointment.id)"><b>Reserve</b></a>
     </tr>
   </tbody>
 </nz-table> 

@@ -16,4 +16,9 @@ export class DermatologistAppointmentService {
   public getAllExaminationsByPharmacyId(id): Observable<any> {
     return this.http.get(`http://localhost:8080/dermatologist-examinations/${id}/pharmacy`);
   }
+
+  public reserveExamination(body): Observable<any> {
+    return this.http.put(`http://localhost:8080/dermatologist-examinations/reserve`, body);
+  }
+
 }

@@ -94,7 +94,7 @@ registerLocaleData(en);
     DroppedMedReservationsComponent,
     BussinessReportComponent,
     MedicamentReservationComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

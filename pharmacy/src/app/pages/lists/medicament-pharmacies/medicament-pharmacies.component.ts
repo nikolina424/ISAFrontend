@@ -1,5 +1,5 @@
 import { PharmacyService } from './../../../services/pharmacy.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,7 +11,8 @@ export class MedicamentPharmaciesComponent implements OnInit {
 
   public pharmacies = [];
   public medicamentId: any;
-  constructor(private route: ActivatedRoute, private pharmacyService: PharmacyService) { }
+  public pharmacyMedicamentId: any;
+  constructor(private router: Router, private route: ActivatedRoute, private pharmacyService: PharmacyService) { }
 
   ngOnInit(): void {
     this.findPharmacies();
@@ -23,6 +24,11 @@ export class MedicamentPharmaciesComponent implements OnInit {
       this.pharmacies = data;
     })
 
+  }
+
+  reserveMedicament(): void{
+    this.pharmacyMedicamentId = this.route.snapshot.params.id;
+    this.router.navigateByUrl(`homepage/new-items/medicament-reservation/${this.pharmacyMedicamentId}`);
   }
 
 }

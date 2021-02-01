@@ -12,13 +12,14 @@ export class DroppedMedReservationsComponent implements OnInit {
 
   public patientId: any;
   public reservations= [] as  any;
-  tooltips = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+  tooltips = ['1', '2', '3', '4', '5'];
   public ratings = [];
   value = 0;
   savedId: any;
   savedReservations= [] as any;
   ratingsMedicament = [] as any;
   ratingsPharmacy = [] as any;
+  res = false;
 
 
   constructor(private ratingService: RatingService, private route: ActivatedRoute, private mrService: MedicamentReservationService) { }
@@ -68,9 +69,10 @@ export class DroppedMedReservationsComponent implements OnInit {
       grade: grade
     }
     this.ratingService.rateMedicament(body).subscribe(data => {
+      
       console.log("Uspesno");
+     
     }, error => {
-      alert("Error");
     })
   }
 

@@ -8,8 +8,18 @@
         <li nz-menu-item *ngIf="isPatient" (click)="listPharmacies()">All pharmacies </li>
         <li nz-submenu *ngIf="isPatient"  nzTitle="Appointment history">
           <ul>
-            <li nz-menu-item >Dermatologists</li>
-            <li nz-menu-item >Pharmacists</li>
+            <li nz-submenu  nzTitle="Dermatologists">
+              <ul>
+                <li nz-menu-item >Active</li>
+                <li nz-menu-item >Dropped</li>
+              </ul>
+            </li>
+            <li nz-submenu  nzTitle="Pharmacists">
+              <ul>
+                <li nz-menu-item >Active</li>
+                <li nz-menu-item >Dropped</li>
+              </ul>
+            </li>
           </ul>
         </li>
         <li nz-menu-item *ngIf="isPatient">Scheduled appointments </li>

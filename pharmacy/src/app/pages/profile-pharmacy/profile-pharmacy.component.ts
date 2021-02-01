@@ -29,6 +29,7 @@ export class ProfilePharmacyComponent implements OnInit {
   public isSystemAdmin: boolean = false;
   public isPharmacyAdmin: boolean = false;
   public user: any;
+  public reserveDermatologist = false;
 
   constructor(private router: Router, private daService: DermatologistAppointmentService, private pmService: PharmacyMedicamentService, private pharmacistService: PharmacistService, private dermatologistService: DermatologistService, private route: ActivatedRoute, private pharmacyService: PharmacyService, private shiftService: ShiftService) { }
 
@@ -84,7 +85,6 @@ export class ProfilePharmacyComponent implements OnInit {
         this.dermatologists.push(this.dermatologist);
       })
     });
-    console.log(this.dermatologists);
   }
 
   setUpPharmacists(): void{
@@ -106,12 +106,24 @@ export class ProfilePharmacyComponent implements OnInit {
     this.id = this.route.snapshot.params.id;
     this.daService.getAllExaminationsByPharmacyId(this.id).subscribe(data =>{
       this.appointments = data;
-      console.log(data);
     })
   }
 
   reserveMedicament(id): void{
     this.router.navigateByUrl(`homepage/new-items/medicament-reservation/${id}`);
+  }
+
+  public reserveDermatologistAppointment(id): void{
+    let body= {
+      reservationId: id,
+      patientId: this.user.id
+    }
+    console.log(body);
+    console.log("gde sam");
+    this.daService.reserveExamination(body).subscribe(data =>{
+      this.reserveDermatologist = data;
+      this.setUpAppointments();
+    })
   }
 
 }

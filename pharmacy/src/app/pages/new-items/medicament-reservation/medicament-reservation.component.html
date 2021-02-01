@@ -1,4 +1,13 @@
-<label class="labela">You chose medicament: </label>
+<nz-alert
+nzType="success"
+*ngIf="res"
+nzMessage="Success"
+nzDescription="You made reservation successfully! Check your email!"
+nzShowIcon
+>
+</nz-alert>
+
+<label class="nzm">You chose medicament: </label>
 <label class="ime"><b>{{pharmacyMedicament.medicament.name}}</b></label>
 
 <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
