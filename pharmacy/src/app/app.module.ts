@@ -1,3 +1,4 @@
+import { ActiveDermatologistAppointmentsComponent } from './pages/lists/active-dermatologist-appointments/active-dermatologist-appointments.component';
 import { MedicamentReservationComponent } from './pages/new-items/medicament-reservation/medicament-reservation.component';
 import { BussinessReportComponent } from './pages/bussiness-report/bussiness-report.component';
 import { DroppedMedReservationsComponent } from './pages/lists/dropped-med-reservations/dropped-med-reservations.component';
@@ -53,6 +54,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { SearchPharmaciesComponent } from './pages/lists/search-pharmacies/search-pharmacies.component';
 import { SearchMedicamentsComponent } from './pages/lists/search-medicaments/search-medicaments.component';
 import { MedicamentPharmaciesComponent } from './pages/lists/medicament-pharmacies/medicament-pharmacies.component';
+import { DroppedDermatologistAppointmentsComponent } from './pages/lists/dropped-dermatologist-appointments/dropped-dermatologist-appointments.component';
 
 registerLocaleData(en);
 
@@ -93,7 +95,9 @@ registerLocaleData(en);
     ActiveMedReservationsComponent,
     DroppedMedReservationsComponent,
     BussinessReportComponent,
-    MedicamentReservationComponent
+    MedicamentReservationComponent,
+    ActiveDermatologistAppointmentsComponent,
+    DroppedDermatologistAppointmentsComponent
     ],
   imports: [
     BrowserModule,

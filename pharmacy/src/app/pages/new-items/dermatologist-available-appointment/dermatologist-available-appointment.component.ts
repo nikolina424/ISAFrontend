@@ -81,6 +81,7 @@ export class DermatologistAvailableAppointmentComponent implements OnInit {
 
      }, error => {
       this.notCreated = true;
+      this.created = false;
      })
   }
    

@@ -21,4 +21,17 @@ export class DermatologistAppointmentService {
     return this.http.put(`http://localhost:8080/dermatologist-examinations/reserve`, body);
   }
 
+  public cancelReservation(body): Observable<any> {
+    return this.http.put(`http://localhost:8080/dermatologist-examinations/cancel`, body);
+  }
+
+
+  public getAllDroppedReservationByPatientId(id): Observable<any> {
+    return this.http.get(`http://localhost:8080/dermatologist-examinations/dropped/${id}/patient`);
+  }
+
+  public getAllActiveReservationByPatientId(id): Observable<any> {
+    return this.http.get(`http://localhost:8080/dermatologist-examinations/active/${id}/patient`);
+  }
+
 }

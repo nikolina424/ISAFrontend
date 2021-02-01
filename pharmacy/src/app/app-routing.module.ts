@@ -1,3 +1,4 @@
+import { ActiveDermatologistAppointmentsComponent } from './pages/lists/active-dermatologist-appointments/active-dermatologist-appointments.component';
 import { MedicamentReservationComponent } from './pages/new-items/medicament-reservation/medicament-reservation.component';
 import { BussinessReportComponent } from './pages/bussiness-report/bussiness-report.component';
 import { DroppedMedReservationsComponent } from './pages/lists/dropped-med-reservations/dropped-med-reservations.component';
@@ -37,6 +38,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SearchMedicamentsComponent } from './pages/lists/search-medicaments/search-medicaments.component';
 import { SearchPharmaciesComponent } from './pages/lists/search-pharmacies/search-pharmacies.component';
 import { MedicamentPharmaciesComponent } from './pages/lists/medicament-pharmacies/medicament-pharmacies.component';
+import { DroppedDermatologistAppointmentsComponent } from './pages/lists/dropped-dermatologist-appointments/dropped-dermatologist-appointments.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'frontpage/lists/search-pharmacies'},
@@ -62,6 +64,8 @@ const routes: Routes = [
     {path: 'lists/search-medicaments', component: SearchMedicamentsComponent},
     {path: 'lists/active-med-reservations/:id', component: ActiveMedReservationsComponent},
     {path: 'lists/dropped-med-reservations/:id', component: DroppedMedReservationsComponent},
+    {path: 'lists/active-dermatologist-appointments/:id', component: ActiveDermatologistAppointmentsComponent},
+    {path: 'lists/dropped-dermatologist-appointments/:id', component: DroppedDermatologistAppointmentsComponent},
     {path: 'lists/medicament-pharmacies/:id', component: MedicamentPharmaciesComponent},
     {path: 'updates/update-patient/:id', component:UpdatePatientComponent},
     {path: 'updates/update-pharmacy-medicament/:id', component:UpdatePharmacyMedicamentComponent},

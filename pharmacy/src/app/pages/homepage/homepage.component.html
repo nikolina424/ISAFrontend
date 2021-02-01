@@ -10,19 +10,18 @@
           <ul>
             <li nz-submenu  nzTitle="Dermatologists">
               <ul>
-                <li nz-menu-item >Active</li>
-                <li nz-menu-item >Dropped</li>
+                <li nz-menu-item (click)="activeDermatologistApp()">Active</li>
+                <li nz-menu-item (click)="droppedDermatologistApp()" >Dropped</li>
               </ul>
             </li>
             <li nz-submenu  nzTitle="Pharmacists">
               <ul>
-                <li nz-menu-item >Active</li>
+                <li nz-menu-item  >Active</li>
                 <li nz-menu-item >Dropped</li>
               </ul>
             </li>
           </ul>
         </li>
-        <li nz-menu-item *ngIf="isPatient">Scheduled appointments </li>
         <li nz-menu-item *ngIf="isPatient" (click)="searchMeds()">Search medicaments </li>
         <li nz-submenu *ngIf="isPatient"  nzTitle="Reserved medicaments">
           <ul>

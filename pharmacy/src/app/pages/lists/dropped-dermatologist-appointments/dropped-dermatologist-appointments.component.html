@@ -1,0 +1,30 @@
+<nz-table #basicTable [nzData]="appointments">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th>Dermatologist first name</th>
+        <th>Dermatologist last name</th>
+        <th>Pharmacy</th>
+        <th>Rate pharmacy</th>
+        <th>Rate dermatologist</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments; let i = index" [attr.data-index]="i">
+        <td>{{ appointment.dateExamination[2]}}.{{appointment.dateExamination[1]}}.{{appointment.dateExamination[0]}}.</td>
+        <td>{{ appointment.startTimeExamination[0]}}:{{appointment.startTimeExamination[1]}}0</td>
+        <td>{{ appointment.endTimeExamination[0]}}:{{appointment.endTimeExamination[1]}}0</td>
+        <td>{{ appointment.dermatologist.firstName}} </td>
+        <td>{{ appointment.dermatologist.lastName}}</td>
+        <td>{{ appointment.pharmacy.name}}</td>
+        <td>
+            <nz-rate [disabled]="ratingsPharmacy[i].done" [(ngModel)]="ratingsPharmacy[i].value" (click)="ratePharmacy(appointment.pharmacy.id, appointment.dermatologist.id, appointment.id )" [nzTooltips]="tooltips"></nz-rate>
+          </td>
+          <td>
+            <nz-rate [disabled]="ratingsDermatologist[i].done" [(ngModel)]="ratingsDermatologist[i].value" (click)="rateDermatologist(appointment.dermatologist.id, appointment.id )" [nzTooltips]="tooltips" ></nz-rate>
+          </td>
+      </tr>
+    </tbody>
+  </nz-table> 
