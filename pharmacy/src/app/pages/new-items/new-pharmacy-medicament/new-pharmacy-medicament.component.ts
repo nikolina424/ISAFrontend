@@ -3,6 +3,7 @@ import { PharmacyMedicamentService } from './../../../services/pharmacy-medicame
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
+import { PricelistService } from 'src/app/services/pricelist.service';
 
 @Component({
   selector: 'app-new-pharmacy-medicament',
@@ -18,15 +19,19 @@ export class NewPharmacyMedicamentComponent implements OnInit {
   quantity: any;
   public medicamentId: any;
   public medicamentAdd = false;
+  public pricelist: any;
+  public createdMedicamentInPharmacy: any;
 
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private phService: PharmacyMedicamentService, private medicamentService: MedicamentService) { }
+  constructor( private pricelistService: PricelistService, private fb: FormBuilder, private route: ActivatedRoute, private phService: PharmacyMedicamentService, private medicamentService: MedicamentService) { }
 
   ngOnInit(): void {
     this.setupUser();
     this.setUpMedicament();
+    this.setUpPricelist();
     this.validateForm = this.fb.group({
-      quantity: [null, [Validators.required]]
+      quantity: [null, [Validators.required]],
+      price: [null, [Validators.required]]
     });
   }
 
@@ -42,6 +47,13 @@ export class NewPharmacyMedicamentComponent implements OnInit {
     })
   }
 
+  private setUpPricelist(): void{
+      this.pricelistService.getActivePricelistByPharmacyId(this.pharmacyId).subscribe(data =>{
+        this.pricelist = data;
+        console.log(this.pricelist);
+      })
+  }
+
   submitForm(): void{
     
     for (const i in this.validateForm.controls) {
@@ -54,8 +66,19 @@ export class NewPharmacyMedicamentComponent implements OnInit {
       medicamentId: this.medicamentId,
       quantity:this.validateForm.value.quantity
     }
+    
     this.phService.addMedicamentToPharmacy(body).subscribe(data =>{
+      this.createdMedicamentInPharmacy = data;
       this.medicamentAdd = true;
+      const b = {
+        price: this.validateForm.value.price,
+        pharmacyMedicamentId: this.createdMedicamentInPharmacy.id,
+        pricelistId: this.pricelist.id
+      }
+      this.pricelistService.createPriceMedicament(b).subscribe(data =>{
+        console.log(data);
+      })
+      
     })
   }
 }

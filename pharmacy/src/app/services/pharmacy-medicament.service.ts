@@ -26,4 +26,8 @@ export class PharmacyMedicamentService {
     return this.http.post(`http://localhost:8080/pharmacy-medicaments`, body);
   }
 
+  public removeMedicamentFromPharmacy(body): Observable<any> {
+    return this.http.post(`http://localhost:8080/pharmacy-medicaments/remove`, body);
+  }
+
 }

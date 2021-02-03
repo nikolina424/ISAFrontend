@@ -1,3 +1,5 @@
+import { PricelistComponent } from './pages/new-items/pricelist/pricelist.component';
+import { PricelistsComponent } from './pages/lists/pricelists/pricelists.component';
 import { ActiveDermatologistAppointmentsComponent } from './pages/lists/active-dermatologist-appointments/active-dermatologist-appointments.component';
 import { MedicamentReservationComponent } from './pages/new-items/medicament-reservation/medicament-reservation.component';
 import { BussinessReportComponent } from './pages/bussiness-report/bussiness-report.component';
@@ -97,7 +99,9 @@ registerLocaleData(en);
     BussinessReportComponent,
     MedicamentReservationComponent,
     ActiveDermatologistAppointmentsComponent,
-    DroppedDermatologistAppointmentsComponent
+    DroppedDermatologistAppointmentsComponent,
+    PricelistsComponent,
+    PricelistComponent
     ],
   imports: [
     BrowserModule,

@@ -1,3 +1,5 @@
+import { PricelistComponent } from './pages/new-items/pricelist/pricelist.component';
+import { PricelistsComponent } from './pages/lists/pricelists/pricelists.component';
 import { ActiveDermatologistAppointmentsComponent } from './pages/lists/active-dermatologist-appointments/active-dermatologist-appointments.component';
 import { MedicamentReservationComponent } from './pages/new-items/medicament-reservation/medicament-reservation.component';
 import { BussinessReportComponent } from './pages/bussiness-report/bussiness-report.component';
@@ -66,6 +68,7 @@ const routes: Routes = [
     {path: 'lists/dropped-med-reservations/:id', component: DroppedMedReservationsComponent},
     {path: 'lists/active-dermatologist-appointments/:id', component: ActiveDermatologistAppointmentsComponent},
     {path: 'lists/dropped-dermatologist-appointments/:id', component: DroppedDermatologistAppointmentsComponent},
+    {path: 'lists/pricelists/:id', component: PricelistsComponent},
     {path: 'lists/medicament-pharmacies/:id', component: MedicamentPharmaciesComponent},
     {path: 'updates/update-patient/:id', component:UpdatePatientComponent},
     {path: 'updates/update-pharmacy-medicament/:id', component:UpdatePharmacyMedicamentComponent},
@@ -73,6 +76,7 @@ const routes: Routes = [
     {path: 'updates/update-password-pa', component:UpdatePasswordPaComponent},
     {path: 'updates/update-pharmacy-admin/:id', component:UpdatePharmacyAdminComponent},
     {path: 'new-items/allergy', component:AllergyComponent},
+    {path: 'new-items/pricelist/:id', component:PricelistComponent},
     {path: 'new-items/medicament-reservation/:id', component:MedicamentReservationComponent},
     {path: 'new-items/pharmacist', component:PharmacistComponent},
     {path: 'new-items/dermatologist-available-appointment/:id', component:DermatologistAvailableAppointmentComponent},

@@ -1,0 +1,36 @@
+<nz-alert
+nzType="success"
+*ngIf="created"
+nzMessage="Success "
+nzDescription="Successfully added pricelist!"
+nzShowIcon
+>
+</nz-alert>
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <br>
+     <nz-form-item *ngFor="let priceMedicament of priceMedicaments">
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="start">{{priceMedicament.pharmacyMedicamentResponse.medicament.name}}</nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid time!">
+                  <input class="nzm"  [(ngModel)]="priceMedicament.price" nz-input formControlName="price" id="price" />
+                </nz-form-control>
+    </nz-form-item>
+    <nz-form-item >
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="from">Valid from:(YYYY-mm-DD)</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid date!">
+          <input class="nzm" nz-input formControlName="from" id="from" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item >
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="to">Valid to:(YYYY-mm-DD)</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid date!">
+          <input class="nzm" nz-input formControlName="to" id="to" />
+        </nz-form-control>
+    </nz-form-item>
+    
+    
+     <nz-form-item nz-row class="register-area">
+       <nz-form-control [nzSpan]="14" [nzOffset]="6">
+         <button nz-button nzType="primary" nzGhost>Add pricelist</button>
+       </nz-form-control>
+     </nz-form-item>
+</form>

@@ -1,3 +1,4 @@
+import { ShiftService } from './../../../services/shift.service';
 import { Router } from '@angular/router';
 import { SearchService } from './../../../services/search.service';
 import { DermatologistService } from './../../../services/dermatologist.service';
@@ -19,8 +20,9 @@ export class DermatologistsComponent implements OnInit {
   public pharmacies = [];
   public dermatologist: any;
   public alreadyHere = false;
+  public alert = 5;
 
-  constructor(private router: Router, private dermatologistService: DermatologistService, private fb: FormBuilder, private searchService: SearchService) { }
+  constructor(private router: Router,private shiftService: ShiftService, private dermatologistService: DermatologistService, private fb: FormBuilder, private searchService: SearchService) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -100,7 +102,7 @@ export class DermatologistsComponent implements OnInit {
 
 
   public remove(id): void {
-    this.worksHere = false;
+  /*  this.worksHere = false;
     this.dermatologistService.getDermatologistById(id).subscribe(data => {
         this.pharmacies = data.pharmacyResponses;
         console.log(this.pharmacies);
@@ -122,7 +124,16 @@ export class DermatologistsComponent implements OnInit {
         console.log("Remuvuj me jer sam ovde");
       }else{
         console.log("Ne mozes mi nista");
+      }*/
+      let body = {
+        pharmacyId: this.pharmacyId,
+        dermatologistId: id
       }
+      this.shiftService.removeDermatologistFromPharmacy(body).subscribe(data => {
+        this.alert = data;
+        console.log(data);
+      })
+      this.getAllDermatologists();
   }
 
 }

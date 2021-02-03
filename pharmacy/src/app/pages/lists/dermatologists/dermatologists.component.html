@@ -1,6 +1,14 @@
 <nz-alert nzType="warning" *ngIf="alreadyHere" nzMessage="Warning" nzDescription="This dermatologist already works here!" nzShowIcon> </nz-alert>
-
-
+<nz-alert nzType="error"  *ngIf="alert === 3" nzMessage="Error" nzDescription="This dermatologist have reservated examination!" nzShowIcon> </nz-alert>
+<nz-alert nzType="error"  *ngIf="alert === 2" nzMessage="Error" nzDescription="This dermatologist does not work here!" nzShowIcon> </nz-alert>
+<nz-alert
+      nzType="success"
+      nzMessage="Deleting dermatologist"
+      *ngIf="alert === 1"
+      nzDescription="Successfully deleted dermatologist from this pharmacy!"
+      nzShowIcon
+    >
+</nz-alert>
 <div class="content">
   <br> 
   <form  nz-form [formGroup]="validateForm" class="ant-advanced-search-form">

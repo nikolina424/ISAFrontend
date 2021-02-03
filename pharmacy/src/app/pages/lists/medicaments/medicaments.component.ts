@@ -17,8 +17,10 @@ export class MedicamentsComponent implements OnInit {
   public pharmacyMedicaments = [];
   public medicament: any;
   validateForm!: FormGroup;
+  public alert = true;
+  public alertSucc = false;
 
-  constructor(private router: Router, private searchService: SearchService, private pmService: PharmacyMedicamentService, private mService: MedicamentService, private fb: FormBuilder) { }
+  constructor(private pharmacyMedicamentService: PharmacyMedicamentService, private router: Router, private searchService: SearchService, private pmService: PharmacyMedicamentService, private mService: MedicamentService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -73,6 +75,19 @@ export class MedicamentsComponent implements OnInit {
 
   add(): void {
     this.router.navigateByUrl(`homepage/lists/new-medicaments`);
+  }
+
+  remove(id): void {
+    let body = {
+      pharmacyId: this.pharmacyId,
+      itemId: id
+    }
+    this.pharmacyMedicamentService.removeMedicamentFromPharmacy(body).subscribe(data => {
+        this.alert = data;
+        console.log(data);
+        this.alertSucc = data;
+        this.getAllMedicamentsByPharmacyId(this.pharmacyId);
+    })
   }
 
 }

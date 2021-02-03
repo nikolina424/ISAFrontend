@@ -1,0 +1,44 @@
+<button class="dugmic" nz-button nzType="primary" (click)="createPricelist()"><b>Create new pricelist</b></button>
+<br>
+<label class="nzm"><b>Price for available appointments with dermatologists:</b></label>
+<nz-table #basicTable [nzData]="appointments">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Date</th>
+        <th>Appointment start</th>
+        <th>Appointment end</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.dermatologist.firstName }}</td>
+        <td>{{ appointment.dermatologist.lastName }}</td>
+        <td>{{appointment.dateExamination[2]}}.{{appointment.dateExamination[1]}}.{{appointment.dateExamination[0]}}.</td>
+        <td>{{appointment.startTimeExamination[0]}}:{{appointment.startTimeExamination[1]}}0</td>
+        <td>{{appointment.endTimeExamination[0]}}:{{appointment.endTimeExamination[1]}}0</td>
+        <td>{{ appointment.price }} $</td>
+      </tr>
+    </tbody>
+</nz-table> 
+
+<br>
+<label class="nzm"><b>Price for medicaments:</b></label>
+<nz-table #basicTable [nzData]="priceMedicaments">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let priceMedicament of priceMedicaments">
+        <td>{{ priceMedicament.pharmacyMedicamentResponse.medicament.name }}</td>
+        <td>{{ priceMedicament.price }} $</td>
+      </tr>
+    </tbody>
+</nz-table> 
+<br>
+

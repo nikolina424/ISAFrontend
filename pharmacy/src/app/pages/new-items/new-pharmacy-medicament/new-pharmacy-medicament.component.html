@@ -1,7 +1,7 @@
 <nz-alert
 nzType="success"
 *ngIf="medicamentAdd"
-nzMessage="Success Tips"
+nzMessage="Success "
 nzDescription="Successfully added medicament!"
 nzShowIcon
 >
@@ -15,6 +15,12 @@ nzShowIcon
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="quantity">Quantity</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid!">
         <input nz-input formControlName="quantity" id="quantity" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="price">Price</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid!">
+        <input nz-input formControlName="price" id="price" />
       </nz-form-control>
     </nz-form-item>
     <nz-form-item nz-row class="register-area">

@@ -1,3 +1,12 @@
+<nz-alert nzType="error"  *ngIf="!alert" nzMessage="Error" nzDescription="This medicament have reservation!" nzShowIcon> </nz-alert>
+<nz-alert
+      nzType="success"
+      nzMessage="Deleting dermatologist"
+      *ngIf="alertSucc"
+      nzDescription="Successfully deleted medicament from this pharmacy!"
+      nzShowIcon
+    >
+</nz-alert>
 <div class="content">
     <br> 
     <form  nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
@@ -57,7 +66,7 @@
           <td>
             <a (click)="change(pharmacyMedicament.id)" >Change quantity</a>
             <nz-divider nzType="vertical"></nz-divider>
-            <a >Remove</a>
+            <a (click)="remove(pharmacyMedicament.id)">Remove</a>
           </td>
         </tr>
       </tbody>
