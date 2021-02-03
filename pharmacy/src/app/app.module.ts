@@ -1,3 +1,6 @@
+import { AnswerComponent } from './pages/new-items/answer/answer.component';
+import { ComplaintsComponent } from './pages/lists/complaints/complaints.component';
+import { ComplaintPharmacyComponent } from './pages/new-items/complaint-pharmacy/complaint-pharmacy.component';
 import { UpdatePasswordPatientComponent } from './pages/updates/update-password-patient/update-password-patient.component';
 import { UpdateSupplierComponent } from './pages/updates/update-supplier/update-supplier.component';
 import { UpdateSystemAdminComponent } from './pages/updates/update-system-admin/update-system-admin.component';
@@ -66,6 +69,8 @@ import { SearchPharmaciesComponent } from './pages/lists/search-pharmacies/searc
 import { SearchMedicamentsComponent } from './pages/lists/search-medicaments/search-medicaments.component';
 import { MedicamentPharmaciesComponent } from './pages/lists/medicament-pharmacies/medicament-pharmacies.component';
 import { DroppedDermatologistAppointmentsComponent } from './pages/lists/dropped-dermatologist-appointments/dropped-dermatologist-appointments.component';
+import { ComplaintDermatologistComponent } from './pages/new-items/complaint-dermatologist/complaint-dermatologist.component';
+import { ComplaintPharmacistComponent } from './pages/new-items/complaint-pharmacist/complaint-pharmacist.component';
 
 registerLocaleData(en);
 
@@ -119,7 +124,12 @@ registerLocaleData(en);
     UpdatePasswordSaComponent,
     UpdatePasswordPharmacistComponent,
     UpdatePasswordDermatologistComponent,
-    UpdatePasswordPatientComponent
+    UpdatePasswordPatientComponent,
+    ComplaintDermatologistComponent,
+    ComplaintPharmacistComponent,
+    ComplaintPharmacyComponent,
+    ComplaintsComponent,
+    AnswerComponent
     
     ],
   imports: [

@@ -1,5 +1,6 @@
+import { PharmacistService } from './../../../services/pharmacist.service';
 import { RatingService } from './../../../services/rating.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DermatologistAppointmentService } from './../../../services/dermatologist-appointment.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -16,7 +17,7 @@ export class DroppedDermatologistAppointmentsComponent implements OnInit {
   ratingsDermatologist = [] as any;
   ratingsPharmacy = [] as any;
 
-  constructor(private ratingService: RatingService, private route: ActivatedRoute, private daService: DermatologistAppointmentService) { }
+  constructor(private router: Router, private ratingService: RatingService, private route: ActivatedRoute, private daService: DermatologistAppointmentService) { }
 
   ngOnInit(): void {
     this.setupAppointments();
@@ -72,6 +73,15 @@ export class DroppedDermatologistAppointmentsComponent implements OnInit {
      
     }, error => {
     })
+  }
+
+  complaintDermatologist(id, pharmacyId): void {
+    localStorage.setItem('pharmacyId', JSON.stringify(pharmacyId));
+    this.router.navigateByUrl(`homepage/new-items/complaint-dermatologist/${id}`);
+  }
+
+  complaintPharmacy(id): void {
+    this.router.navigateByUrl(`homepage/new-items/complaint-pharmacy/${id}`);
   }
 
   ratePharmacy(pharmacyId, dermatologistId, appId): void {

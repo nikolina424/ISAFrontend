@@ -6,6 +6,7 @@
         <th>Final pick date</th>
         <th>Rate pharmacy</th>
         <th>Rate medicament</th>
+        <th>Add complaint</th>
       </tr>
     </thead>
     <tbody>
@@ -18,6 +19,9 @@
         </td>
         <td>
           <nz-rate [disabled]="ratingsMedicament[i].done" [(ngModel)]="ratingsMedicament[i].value" (click)="rateMedicament(reservation.pharmacyMedicament.medicament.id)" [nzTooltips]="tooltips" ></nz-rate>
+        </td>
+        <td>
+          <a (click)="complaint(reservation.pharmacyMedicament.pharmacy.id)">Pharmacy</a>
         </td>
       </tr>
     </tbody>

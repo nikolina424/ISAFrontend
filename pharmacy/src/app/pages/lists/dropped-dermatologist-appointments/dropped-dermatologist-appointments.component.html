@@ -9,6 +9,8 @@
         <th>Pharmacy</th>
         <th>Rate pharmacy</th>
         <th>Rate dermatologist</th>
+        <th>Add complaint</th>
+  
       </tr>
     </thead>
     <tbody>
@@ -25,6 +27,11 @@
           <td>
             <nz-rate [disabled]="ratingsDermatologist[i].done" [(ngModel)]="ratingsDermatologist[i].value" (click)="rateDermatologist(appointment.dermatologist.id, appointment.id )" [nzTooltips]="tooltips" ></nz-rate>
           </td>
+        <td>
+          <a (click)="complaintPharmacy(appointment.pharmacy.id)">Pharmacy</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a (click)="complaintDermatologist(appointment.dermatologist.id, appointment.pharmacy.id)">Dermatologist</a>
+        </td>
       </tr>
     </tbody>
   </nz-table> 

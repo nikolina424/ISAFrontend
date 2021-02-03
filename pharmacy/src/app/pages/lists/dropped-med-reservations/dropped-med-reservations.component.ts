@@ -1,5 +1,5 @@
 import { RatingService } from './../../../services/rating.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MedicamentReservationService } from './../../../services/medicament-reservation.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -22,7 +22,7 @@ export class DroppedMedReservationsComponent implements OnInit {
   res = false;
 
 
-  constructor(private ratingService: RatingService, private route: ActivatedRoute, private mrService: MedicamentReservationService) { }
+  constructor( private router: Router, private ratingService: RatingService, private route: ActivatedRoute, private mrService: MedicamentReservationService) { }
 
   ngOnInit(): void {
     this.setupReservations();
@@ -95,6 +95,10 @@ export class DroppedMedReservationsComponent implements OnInit {
     }, error => {
       alert("Error");
     })
+  }
+
+  complaint(id): void{
+    this.router.navigateByUrl(`homepage/new-items/complaint-pharmacy/${id}`);
   }
 
 

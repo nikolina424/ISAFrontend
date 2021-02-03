@@ -1,0 +1,70 @@
+<br>
+<label class="nzm"><b>Complaints on pharmacy:</b></label>
+<nz-table #basicTable [nzData]="pharmacyComplaints">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Text</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pharmacyComplaint of pharmacyComplaints">
+        <td>{{ pharmacyComplaint.patientResponse.firstName }}</td>
+        <td>{{ pharmacyComplaint.patientResponse.lastName }}</td>
+        <td>{{ pharmacyComplaint.text }}</td>
+        <td (click)="answer(pharmacyComplaint.id, pharmacyComplaint.patientResponse.id)"> <a><b>Answer</b></a></td>
+      </tr>
+    </tbody>
+  </nz-table> 
+  <br>
+  <label class="nzm"><b>Complaints on dermatologists:</b></label>
+  <nz-table #basicTable [nzData]="dermatologistComplaints">
+    <thead>
+      <tr>
+        <th>Patient first name</th>
+        <th>Patient last name</th>
+        <th>Dermatologists first name</th>
+        <th>Dermatologists last name</th>
+        <th>Text</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dermatologistComplaint of dermatologistComplaints">
+        <td>{{ dermatologistComplaint.patientResponse.firstName }}</td>
+        <td>{{ dermatologistComplaint.patientResponse.lastName  }}</td>
+        <td>{{ dermatologistComplaint.dermatologistResponse.firstName }}</td>
+        <td>{{ dermatologistComplaint.dermatologistResponse.lastName }}</td>
+        <td>{{ dermatologistComplaint.text }}</td>
+        <td> <a  (click)="answer(dermatologistComplaint.id, dermatologistComplaint.patientResponse.id)"><b>Answer</b></a></td>
+      </tr>
+    </tbody>
+  </nz-table> 
+  <br>
+  <label class="nzm"><b>Complaints on pharmacists:</b></label>
+  <nz-table #basicTable [nzData]="pharmacistComplaints">
+      <thead>
+        <tr>
+          <th>Patient first name</th>
+          <th>Patient last name</th>
+          <th>Pharmacist first name</th>
+          <th>Pharmacist last name</th>
+          <th>Text</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pharmacistComplaint of pharmacistComplaints">
+          <td>{{ pharmacistComplaint.patientResponse.firstName }}</td>
+          <td>{{ pharmacistComplaint.patientResponse.lastName  }}</td>
+          <td>{{ pharmacistComplaint.pharmacistResponse.firstName }}</td>
+          <td>{{ pharmacistComplaint.pharmacistResponse.lastName }}</td>
+          <td>{{ pharmacistComplaint.text }}</td>
+          <td> <a (click)="answer(pharmacistComplaint.id, pharmacistComplaint.patientResponse.id)"><b>Answer</b></a></td>
+        </tr>
+      </tbody> 
+    <br>
+  </nz-table> 
+  
