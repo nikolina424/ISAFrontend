@@ -1,3 +1,12 @@
+import { UpdatePasswordSupplierComponent } from './pages/updates/update-password-supplier/update-password-supplier.component';
+import { UpdatePasswordDermatologistComponent } from './pages/updates/update-password-dermatologist/update-password-dermatologist.component';
+import { UpdatePasswordPharmacistComponent } from './pages/updates/update-password-pharmacist/update-password-pharmacist.component';
+import { UpdatePasswordPatientComponent } from './pages/updates/update-password-patient/update-password-patient.component';
+import { UpdatePasswordSaComponent } from './pages/updates/update-password-sa/update-password-sa.component';
+import { UpdateSystemAdminComponent } from './pages/updates/update-system-admin/update-system-admin.component';
+import { UpdateSupplierComponent } from './pages/updates/update-supplier/update-supplier.component';
+import { UpdatePharmacistComponent } from './pages/updates/update-pharmacist/update-pharmacist.component';
+import { UpdateDermatologistComponent } from './pages/updates/update-dermatologist/update-dermatologist.component';
 import { PricelistComponent } from './pages/new-items/pricelist/pricelist.component';
 import { PricelistsComponent } from './pages/lists/pricelists/pricelists.component';
 import { ActiveDermatologistAppointmentsComponent } from './pages/lists/active-dermatologist-appointments/active-dermatologist-appointments.component';
@@ -70,11 +79,23 @@ const routes: Routes = [
     {path: 'lists/dropped-dermatologist-appointments/:id', component: DroppedDermatologistAppointmentsComponent},
     {path: 'lists/pricelists/:id', component: PricelistsComponent},
     {path: 'lists/medicament-pharmacies/:id', component: MedicamentPharmaciesComponent},
-    {path: 'updates/update-patient/:id', component:UpdatePatientComponent},
     {path: 'updates/update-pharmacy-medicament/:id', component:UpdatePharmacyMedicamentComponent},
     {path: 'updates/update-pharmacy/:id', component:UpdatePharmacyComponent},
-    {path: 'updates/update-password-pa', component:UpdatePasswordPaComponent},
+   
+    {path: 'updates/update-patient/:id', component:UpdatePatientComponent},
+    {path: 'updates/update-dermatologist/:id', component:UpdateDermatologistComponent},
+    {path: 'updates/update-pharmacist/:id', component:UpdatePharmacistComponent},
     {path: 'updates/update-pharmacy-admin/:id', component:UpdatePharmacyAdminComponent},
+    {path: 'updates/update-supplier/:id', component:UpdateSupplierComponent},
+    {path: 'updates/update-system-admin/:id', component:UpdateSystemAdminComponent},
+    
+    {path: 'updates/update-password-pa', component:UpdatePasswordPaComponent},
+    {path: 'updates/update-password-sa', component:UpdatePasswordSaComponent},
+    {path: 'updates/update-password-patient', component:UpdatePasswordPatientComponent},
+    {path: 'updates/update-password-pharmacist', component:UpdatePasswordPharmacistComponent},
+    {path: 'updates/update-password-dermatologist', component:UpdatePasswordDermatologistComponent},
+    {path: 'updates/update-password-supplier', component:UpdatePasswordSupplierComponent},
+    
     {path: 'new-items/allergy', component:AllergyComponent},
     {path: 'new-items/pricelist/:id', component:PricelistComponent},
     {path: 'new-items/medicament-reservation/:id', component:MedicamentReservationComponent},

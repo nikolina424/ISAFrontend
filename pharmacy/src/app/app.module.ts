@@ -1,3 +1,12 @@
+import { UpdatePasswordPatientComponent } from './pages/updates/update-password-patient/update-password-patient.component';
+import { UpdateSupplierComponent } from './pages/updates/update-supplier/update-supplier.component';
+import { UpdateSystemAdminComponent } from './pages/updates/update-system-admin/update-system-admin.component';
+import { UpdatePasswordDermatologistComponent } from './pages/updates/update-password-dermatologist/update-password-dermatologist.component';
+import { UpdatePasswordPharmacistComponent } from './pages/updates/update-password-pharmacist/update-password-pharmacist.component';
+import { UpdatePasswordSaComponent } from './pages/updates/update-password-sa/update-password-sa.component';
+import { UpdatePasswordSupplierComponent } from './pages/updates/update-password-supplier/update-password-supplier.component';
+import { UpdateDermatologistComponent } from './pages/updates/update-dermatologist/update-dermatologist.component';
+import { UpdatePharmacistComponent } from './pages/updates/update-pharmacist/update-pharmacist.component';
 import { PricelistComponent } from './pages/new-items/pricelist/pricelist.component';
 import { PricelistsComponent } from './pages/lists/pricelists/pricelists.component';
 import { ActiveDermatologistAppointmentsComponent } from './pages/lists/active-dermatologist-appointments/active-dermatologist-appointments.component';
@@ -101,7 +110,17 @@ registerLocaleData(en);
     ActiveDermatologistAppointmentsComponent,
     DroppedDermatologistAppointmentsComponent,
     PricelistsComponent,
-    PricelistComponent
+    PricelistComponent,
+    UpdatePharmacistComponent,
+    UpdateDermatologistComponent,
+    UpdateSupplierComponent,
+    UpdateSystemAdminComponent,
+    UpdatePasswordSupplierComponent,
+    UpdatePasswordSaComponent,
+    UpdatePasswordPharmacistComponent,
+    UpdatePasswordDermatologistComponent,
+    UpdatePasswordPatientComponent
+    
     ],
   imports: [
     BrowserModule,

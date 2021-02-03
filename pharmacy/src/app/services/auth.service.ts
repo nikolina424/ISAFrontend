@@ -41,7 +41,27 @@ export class AuthService {
   }
 
   public changePasswordForPharmacyAdmin(id, body): Observable<any> {
-    return this.http.put(`http://localhost:8080/auth/${id}`, body);
+    return this.http.put(`http://localhost:8080/auth/${id}/pharmacy-admin`, body);
+  }
+
+  public changePasswordForSystemAdmin(id, body): Observable<any> {
+    return this.http.put(`http://localhost:8080/auth/${id}/system-admin`, body);
+  }
+
+  public changePasswordForSupplier(id, body): Observable<any> {
+    return this.http.put(`http://localhost:8080/auth/${id}/supplier`, body);
+  }
+
+  public changePasswordForPharmacist(id, body): Observable<any> {
+    return this.http.put(`http://localhost:8080/auth/${id}/pharmacist`, body);
+  }
+
+  public changePasswordForDermatologist(id, body): Observable<any> {
+    return this.http.put(`http://localhost:8080/auth/${id}/dermatologist`, body);
+  }
+
+  public changePasswordForPatient(id, body): Observable<any> {
+    return this.http.put(`http://localhost:8080/auth/${id}/patient`, body);
   }
 
 }

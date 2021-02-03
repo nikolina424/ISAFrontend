@@ -12,4 +12,12 @@ export class PharmacistService {
   public getAllPharmacistByPharmacyId(id): Observable<any> {
     return this.http.get(`http://localhost:8080/pharmacists/${id}/pharmacy`);
   }
+
+  public updatePharmacist(id, body): Observable<any> {
+    return this.http.put(`http://localhost:8080/pharmacists/${id}`, body);
+  }
+
+  public getPharmacist(id): Observable<any> {
+    return this.http.get(`http://localhost:8080/pharmacists/${id}`);
+  }
 }

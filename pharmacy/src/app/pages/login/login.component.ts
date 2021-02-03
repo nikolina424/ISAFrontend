@@ -1,3 +1,4 @@
+import { logging } from 'protractor';
 import { AuthService } from './../../services/auth.service';
 import { RegistrationRequestService } from './../../services/registration-request.service';
 import { Component, OnInit } from '@angular/core';
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
       const user = data;
       localStorage.setItem('user', JSON.stringify(user));
       this.router.navigate(['homepage']);
+      console.log(data);
     
     }, error => { 
       this.errorLogin = true;   

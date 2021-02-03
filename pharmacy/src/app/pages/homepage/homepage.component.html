@@ -2,8 +2,21 @@
     <nz-header>
       <div class="logo"></div>
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
-    
+
+        <li nz-menu-item *ngIf="isSupplier" (click)="supplierProfile()">Change your profile </li>
+        <li nz-menu-item *ngIf="isSupplier" (click)="changePasswordSupplier()">Change your password </li>
+
+        <li nz-menu-item *ngIf="isSystemAdmin" (click)="systemAdminProfile()">Change your profile </li>
+        <li nz-menu-item *ngIf="isSystemAdmin" (click)="changePasswordSystemAdmin()">Change your password </li>
+
+        <li nz-menu-item *ngIf="isDermatologist" (click)="dermatologistProfile()">Change your profile </li>
+        <li nz-menu-item *ngIf="isDermatologist" (click)="changePasswordDermatologist()">Change your password </li>
+
+        <li nz-menu-item *ngIf="isPharmacist" (click)="pharmacistProfile()">Change your profile </li>
+        <li nz-menu-item *ngIf="isPharmacist" (click)="changePasswordPharmacist()">Change your password </li>
+
         <li nz-menu-item *ngIf="isPatient" (click)="patientProfile()">Change your profile </li>
+        <li nz-menu-item *ngIf="isPatient" (click)="changePasswordPatient()">Change your password </li>
         <li nz-menu-item *ngIf="isPatient" (click)="addAllergy()">Add allergy </li>
         <li nz-menu-item *ngIf="isPatient" (click)="listPharmacies()">All pharmacies </li>
         <li nz-submenu *ngIf="isPatient"  nzTitle="Appointment history">
@@ -35,7 +48,7 @@
           <ul>
             <li nz-menu-item  (click)="updatePharmacy()">Update pharmacy </li>
         <li nz-menu-item (click)="pharmacyAdminProfile()">Update profile </li>
-        <li nz-menu-item (click)="changePassword()">Change password</li>
+        <li nz-menu-item (click)="changePasswordPharmacyAdmin()">Change password</li>
           </ul>
         </li>
         <li nz-submenu *ngIf="isPharmacyAdmin"  nzTitle="Create">

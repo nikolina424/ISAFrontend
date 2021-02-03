@@ -13,6 +13,7 @@ export class HomepageComponent implements OnInit {
   public isPharmacist: boolean = false;
   public isSystemAdmin: boolean = false;
   public isPharmacyAdmin: boolean = false;
+  public isSupplier: boolean = false;
   public user: any;
 
 
@@ -38,6 +39,8 @@ export class HomepageComponent implements OnInit {
       this.isDermatologist = true;
     }else if(this.user.userRole === 'PATIENT'){
       this.isPatient = true;
+    }else if(this.user.userRole === 'SUPPLIER'){
+      this.isSupplier = true;
     }
     
   }
@@ -75,8 +78,28 @@ export class HomepageComponent implements OnInit {
     this.router.navigateByUrl(`homepage/updates/update-pharmacy-admin/${this.user.id}`);
   }
 
-  public changePassword(): void {
+  public changePasswordPharmacyAdmin(): void {
     this.router.navigateByUrl(`homepage/updates/update-password-pa`);
+  }
+
+  public changePasswordSupplier(): void {
+    this.router.navigateByUrl(`homepage/updates/update-password-supplier`);
+  }
+
+  public changePasswordPharmacist(): void {
+    this.router.navigateByUrl(`homepage/updates/update-password-pharmacist`);
+  }
+
+  public changePasswordDermatologist(): void {
+    this.router.navigateByUrl(`homepage/updates/update-password-dermatologist`);
+  }
+
+  public changePasswordSystemAdmin(): void {
+    this.router.navigateByUrl(`homepage/updates/update-password-sa`);
+  }
+
+  public changePasswordPatient(): void {
+    this.router.navigateByUrl(`homepage/updates/update-password-patient`);
   }
 
   public addPharmacy(): void {
@@ -142,6 +165,22 @@ export class HomepageComponent implements OnInit {
 
   public pricelists(): void{
     this.router.navigateByUrl(`homepage/lists/pricelists/${this.user.pharmacyId}`);
+  }
+
+  public pharmacistProfile(): void {
+    this.router.navigateByUrl(`homepage/updates/update-pharmacist/${this.user.id}`);
+  }
+
+  public dermatologistProfile(): void {
+    this.router.navigateByUrl(`homepage/updates/update-dermatologist/${this.user.id}`);
+  }
+
+  public supplierProfile(): void {
+    this.router.navigateByUrl(`homepage/updates/update-supplier/${this.user.id}`);
+  }
+
+  public systemAdminProfile(): void {
+    this.router.navigateByUrl(`homepage/updates/update-system-admin/${this.user.id}`);
   }
 
 }

@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-update-password-pa',
-  templateUrl: './update-password-pa.component.html',
-  styleUrls: ['./update-password-pa.component.css']
+  selector: 'app-update-password-supplier',
+  templateUrl: './update-password-supplier.component.html',
+  styleUrls: ['./update-password-supplier.component.css']
 })
-export class UpdatePasswordPaComponent implements OnInit {
+export class UpdatePasswordSupplierComponent implements OnInit {
 
   public user: any;
   validateForm!: FormGroup;
@@ -28,7 +28,7 @@ export class UpdatePasswordPaComponent implements OnInit {
       rePassword: this.validateForm.value.rePassword
   }
   console.log(body);
-  this.authService.changePasswordForPharmacyAdmin(this.user.id, body).subscribe(data => {
+  this.authService.changePasswordForSupplier(this.user.id, body).subscribe(data => {
    this.alert = true;
     this.router.navigateByUrl(`homepage`);
     
