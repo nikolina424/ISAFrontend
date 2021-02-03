@@ -1,0 +1,53 @@
+<div class="content">
+    <br> 
+    <form  nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
+          <nz-form-item>
+            <nz-form-label class="formica" >Date</nz-form-label>
+            <nz-form-control>
+              <input class="ime" nz-input formControlName="dateExamination" placeholder="Input date"/>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label class="formica" >Start time</nz-form-label>
+            <nz-form-control>
+              <input class="ime" nz-input formControlName="startExamination" placeholder="Input start time"/>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label class="formica" >End time</nz-form-label>
+            <nz-form-control>
+              <input class="ime" nz-input formControlName="endExamination" placeholder="Input end time"/>
+            </nz-form-control>
+          </nz-form-item>
+        <div nz-row>
+          <div nz-col [nzSpan]="24" class="search-area">
+            <button nz-button class="dugmic1" nzType="primary"  (click)="findPharmacies()" ><i nz-icon nzType="search"></i>Search</button>
+            <button nz-button class="dugmic"  (click)="resetForm()"  >Clear</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <br><br>
+    <!--RESULT-->
+    <nz-table #basicTable [nzData]="pharmacies">
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Rating</th>
+              <th *ngIf="search">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pharmacy of pharmacies">
+            <td>{{ pharmacy.name }}</td>
+            <td>{{ pharmacy.address }}</td>
+            <td>{{ pharmacy.rating.toFixed(2) }}</td>
+            <td>
+              <a *ngIf="search"><b>View pharmacy profile</b></a>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table> 
+    
+  

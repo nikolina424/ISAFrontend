@@ -1,3 +1,7 @@
+import { PharmacistConsultationComponent } from './pages/lists/pharmacist-consultation/pharmacist-consultation.component';
+import { PharmacyConsultationComponent } from './pages/lists/pharmacy-consultation/pharmacy-consultation.component';
+import { DroppedPharmacistAppointmentsComponent } from './pages/lists/dropped-pharmacist-appointments/dropped-pharmacist-appointments.component';
+import { ActivePharmacistAppointmentsComponent } from './pages/lists/active-pharmacist-appointments/active-pharmacist-appointments.component';
 import { AnswerComponent } from './pages/new-items/answer/answer.component';
 import { ComplaintsComponent } from './pages/lists/complaints/complaints.component';
 import { ComplaintPharmacyComponent } from './pages/new-items/complaint-pharmacy/complaint-pharmacy.component';
@@ -82,7 +86,11 @@ const routes: Routes = [
     {path: 'lists/dropped-med-reservations/:id', component: DroppedMedReservationsComponent},
     {path: 'lists/active-dermatologist-appointments/:id', component: ActiveDermatologistAppointmentsComponent},
     {path: 'lists/dropped-dermatologist-appointments/:id', component: DroppedDermatologistAppointmentsComponent},
+    {path: 'lists/active-pharmacist-appointments/:id', component: ActivePharmacistAppointmentsComponent},
+    {path: 'lists/dropped-pharmacist-appointments/:id', component: DroppedPharmacistAppointmentsComponent},
     {path: 'lists/pricelists/:id', component: PricelistsComponent},
+    {path: 'lists/pharmacy-consultation', component: PharmacyConsultationComponent},
+    {path: 'lists/pharmacist-consultation/:id', component: PharmacistConsultationComponent},
     {path: 'lists/complaints/:id', component: ComplaintsComponent},
     {path: 'lists/medicament-pharmacies/:id', component: MedicamentPharmaciesComponent},
     {path: 'updates/update-pharmacy-medicament/:id', component:UpdatePharmacyMedicamentComponent},

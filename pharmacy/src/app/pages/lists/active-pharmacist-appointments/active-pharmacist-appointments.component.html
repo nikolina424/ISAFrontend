@@ -1,30 +1,28 @@
-<nz-alert nzType="error" *ngIf="!check" nzMessage="Error" nzDescription="You can not cancel this reservation!" nzShowIcon> </nz-alert>
 <nz-table #basicTable [nzData]="appointments">
     <thead>
       <tr>
         <th>Date</th>
         <th>Start time</th>
         <th>End time</th>
-        <th>Dermatologist first name</th>
-        <th>Dermatologist last name</th>
+        <th>Pharmacist first name</th>
+        <th>Pharmacist last name</th>
         <th>Pharmacy</th>
         <th>Price</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let appointment of appointments; let i = index" [attr.data-index]="i">
+      <tr *ngFor="let appointment of appointments">
         <td>{{ appointment.dateExamination[2]}}.{{appointment.dateExamination[1]}}.{{appointment.dateExamination[0]}}.</td>
         <td>{{ appointment.startTimeExamination[0]}}:{{appointment.startTimeExamination[1]}}0</td>
         <td>{{ appointment.endTimeExamination[0]}}:{{appointment.endTimeExamination[1]}}0</td>
-        <td>{{ appointment.dermatologist.firstName}} </td>
-        <td>{{ appointment.dermatologist.lastName}}</td>
-        <td>{{ appointment.pharmacy.name}}</td>
+        <td>{{ appointment.shiftPharmacistResponse.pharmacistResponse.firstName}} </td>
+        <td>{{ appointment.shiftPharmacistResponse.pharmacistResponse.lastName}}</td>
+        <td>{{ appointment.shiftPharmacistResponse.pharmacyResponse.name}}</td>
         <td>{{ appointment.price}} $</td>
         <td>
-          <a (click)="cancel(appointment.id)"><b>Cancel appointment</b></a>
-        </td>
+            <a (click)="cancelReservation(appointment.id)"><b>Cancel reservation</b></a>
+        </td>   
       </tr>
     </tbody>
   </nz-table> 
-

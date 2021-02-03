@@ -1,3 +1,7 @@
+import { PharmacyConsultationComponent } from './pages/lists/pharmacy-consultation/pharmacy-consultation.component';
+import { PharmacistConsultationComponent } from './pages/lists/pharmacist-consultation/pharmacist-consultation.component';
+import { DroppedPharmacistAppointmentsComponent } from './pages/lists/dropped-pharmacist-appointments/dropped-pharmacist-appointments.component';
+import { ActivePharmacistAppointmentsComponent } from './pages/lists/active-pharmacist-appointments/active-pharmacist-appointments.component';
 import { AnswerComponent } from './pages/new-items/answer/answer.component';
 import { ComplaintsComponent } from './pages/lists/complaints/complaints.component';
 import { ComplaintPharmacyComponent } from './pages/new-items/complaint-pharmacy/complaint-pharmacy.component';
@@ -129,7 +133,11 @@ registerLocaleData(en);
     ComplaintPharmacistComponent,
     ComplaintPharmacyComponent,
     ComplaintsComponent,
-    AnswerComponent
+    AnswerComponent,
+    ActivePharmacistAppointmentsComponent,
+    DroppedPharmacistAppointmentsComponent,
+    PharmacistConsultationComponent,
+    PharmacyConsultationComponent
     
     ],
   imports: [

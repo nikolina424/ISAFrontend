@@ -7,6 +7,7 @@
         <th>Dermatologist first name</th>
         <th>Dermatologist last name</th>
         <th>Pharmacy</th>
+        <th>Price</th>
         <th>Rate pharmacy</th>
         <th>Rate dermatologist</th>
         <th>Add complaint</th>
@@ -21,6 +22,7 @@
         <td>{{ appointment.dermatologist.firstName}} </td>
         <td>{{ appointment.dermatologist.lastName}}</td>
         <td>{{ appointment.pharmacy.name}}</td>
+        <td>{{ appointment.price}} $</td>
         <td>
             <nz-rate [disabled]="ratingsPharmacy[i].done" [(ngModel)]="ratingsPharmacy[i].value" (click)="ratePharmacy(appointment.pharmacy.id, appointment.dermatologist.id, appointment.id )" [nzTooltips]="tooltips"></nz-rate>
           </td>

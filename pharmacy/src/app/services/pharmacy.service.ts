@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -28,5 +28,14 @@ export class PharmacyService {
 
   public getPharmaciesByMedicamentId(id):Observable<any> {
     return this.http.get(`http://localhost:8080/pharmacies/medicament/${id}`)
+  }
+
+  public getPharmaciesByDate(data) : Observable<any>{
+    let queryParams = {
+      params : new HttpParams().set('dateExamination', data["dateExamination"])
+                               .set('startExamination', data["startExamination"])
+                               .set('endExamination', data["endExamination"])
+    } 
+    return this.http.get(`http://localhost:8080/pharmacies/date`, queryParams);
   }
 }

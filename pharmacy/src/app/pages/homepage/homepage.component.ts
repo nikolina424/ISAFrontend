@@ -164,6 +164,22 @@ export class HomepageComponent implements OnInit {
     this.router.navigateByUrl(`homepage/lists/dropped-dermatologist-appointments/${this.user.id}`);
   }
 
+  public activePharmacistApp(): void{
+    this.router.navigateByUrl(`homepage/lists/active-pharmacist-appointments/${this.user.id}`);
+  }
+
+  public droppedPharmacistApp(): void {
+    this.router.navigateByUrl(`homepage/lists/dropped-pharmacist-appointments/${this.user.id}`);
+  }
+
+  public reserveConsultation(): void {
+    this.router.navigateByUrl(`homepage/lists/dropped-pharmacist-appointments/${this.user.id}`);
+  }
+
+  public consultation(): void {
+    this.router.navigateByUrl(`homepage/lists/pharmacy-consultation`);
+  }
+
   public bussinessReport(): void{
     this.router.navigateByUrl(`homepage/bussiness-report/${this.user.pharmacyId}`);
   }

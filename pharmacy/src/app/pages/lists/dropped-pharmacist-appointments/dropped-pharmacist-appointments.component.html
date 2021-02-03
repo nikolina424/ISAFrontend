@@ -1,0 +1,39 @@
+
+<nz-table #basicTable [nzData]="appointments">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th>Pharmacist first name</th>
+        <th>Pharmacist last name</th>
+        <th>Pharmacy</th>
+        <th>Price</th>
+        <th>Rate pharmacy</th>
+        <th>Rate pharmacist</th>
+        <th>Add complaint</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments; let i = index" [attr.data-index]="i">
+        <td>{{ appointment.dateExamination[2]}}.{{appointment.dateExamination[1]}}.{{appointment.dateExamination[0]}}.</td>
+        <td>{{ appointment.startTimeExamination[0]}}:{{appointment.startTimeExamination[1]}}0</td>
+        <td>{{ appointment.endTimeExamination[0]}}:{{appointment.endTimeExamination[1]}}0</td>
+        <td>{{ appointment.shiftPharmacistResponse.pharmacistResponse.firstName}} </td>
+        <td>{{ appointment.shiftPharmacistResponse.pharmacistResponse.lastName}}</td>
+        <td>{{ appointment.shiftPharmacistResponse.pharmacyResponse.name}}</td>
+        <td>{{ appointment.price}} $</td>
+        <td>
+            <nz-rate [disabled]="ratingsPharmacy[i].done"  [(ngModel)]="ratingsPharmacy[i].value" (click)="ratePharmacy(appointment.shiftPharmacistResponse.pharmacyResponse.id, appointment.shiftPharmacistResponse.pharmacistResponse.id, appointment.id )" [nzTooltips]="tooltips"></nz-rate>
+          </td>
+          <td>
+            <nz-rate [disabled]="ratingsPharmacist[i].done" [(ngModel)]="ratingsPharmacist[i].value" (click)="ratePharmacist(appointment.shiftPharmacistResponse.pharmacistResponse.id, appointment.id)" [nzTooltips]="tooltips" ></nz-rate>
+          </td>
+        <td>
+            <a (click)="complaintPharmacy(appointment.shiftPharmacistResponse.pharmacyResponse.id)">Pharmacy</a>
+            <nz-divider nzType="vertical"></nz-divider>
+                <a (click)="complaintPharmacist(appointment.shiftPharmacistResponse.pharmacistResponse.id, appointment.shiftPharmacistResponse.pharmacyResponse.id)">Pharmacist</a>
+        </td>   
+      </tr>
+    </tbody>
+  </nz-table> 
