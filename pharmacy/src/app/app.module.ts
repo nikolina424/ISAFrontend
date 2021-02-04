@@ -1,3 +1,6 @@
+import { PromotionComponent } from './pages/new-items/promotion/promotion.component';
+import { PromotionService } from './services/promotion.service';
+import { SubscribedPharmaciesComponent } from './pages/lists/subscribed-pharmacies/subscribed-pharmacies.component';
 import { PharmacyConsultationComponent } from './pages/lists/pharmacy-consultation/pharmacy-consultation.component';
 import { PharmacistConsultationComponent } from './pages/lists/pharmacist-consultation/pharmacist-consultation.component';
 import { DroppedPharmacistAppointmentsComponent } from './pages/lists/dropped-pharmacist-appointments/dropped-pharmacist-appointments.component';
@@ -137,7 +140,9 @@ registerLocaleData(en);
     ActivePharmacistAppointmentsComponent,
     DroppedPharmacistAppointmentsComponent,
     PharmacistConsultationComponent,
-    PharmacyConsultationComponent
+    PharmacyConsultationComponent,
+    SubscribedPharmaciesComponent,
+    PromotionComponent
     
     ],
   imports: [

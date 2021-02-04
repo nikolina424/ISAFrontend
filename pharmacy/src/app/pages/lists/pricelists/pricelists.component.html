@@ -41,4 +41,22 @@
     </tbody>
 </nz-table> 
 <br>
+<label class="nzm"><b>Price for pharmacists:</b></label>
+<nz-table #basicTable [nzData]="pharmacists">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pharmacist of pharmacists">
+        <td>{{ pharmacist.firstName }}</td>
+        <td>{{ pharmacist.lastName }} </td>
+        <td>{{pharmacist.price}} $</td>
+      </tr>
+    </tbody>
+</nz-table> 
+<br>
 

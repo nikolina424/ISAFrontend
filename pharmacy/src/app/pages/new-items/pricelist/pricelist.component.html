@@ -14,6 +14,12 @@ nzShowIcon
                   <input class="nzm"  [(ngModel)]="priceMedicament.price" nz-input formControlName="price" id="price" />
                 </nz-form-control>
     </nz-form-item>
+    <nz-form-item *ngFor="let pharmacist of pharmacists">
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="start">{{pharmacist.firstName}} {{pharmacist.lastName}}</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid time!">
+        <input class="nzm"  [(ngModel)]="pharmacist.price" nz-input formControlName="price" id="price" />
+      </nz-form-control>
+    </nz-form-item>
     <nz-form-item >
         <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="from">Valid from:(YYYY-mm-DD)</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid date!">
@@ -34,3 +40,4 @@ nzShowIcon
        </nz-form-control>
      </nz-form-item>
 </form>
+

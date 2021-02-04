@@ -31,4 +31,8 @@ export class PharmacistService {
     } 
     return this.http.get(`http://localhost:8080/pharmacists/date`, queryParams);
   }
+
+  public changePricelist(body): Observable<any> {
+    return this.http.put(`http://localhost:8080/pharmacists`, body);
+  }
 }

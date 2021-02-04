@@ -38,4 +38,9 @@ export class PharmacyService {
     } 
     return this.http.get(`http://localhost:8080/pharmacies/date`, queryParams);
   }
+
+  public getAllBySubPatientId(id):Observable<any> {
+    return this.http.get(`http://localhost:8080/pharmacies/subscribed/${id}/patient`)
+  }
 }
+

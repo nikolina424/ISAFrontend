@@ -6,6 +6,14 @@ nzDescription="You made reservation successfully! Check your email!"
 nzShowIcon
 >
 </nz-alert>
+<nz-alert
+nzType="success"
+*ngIf="alertic"
+nzMessage="Success"
+nzDescription="Successfully subscribed!"
+nzShowIcon
+>
+</nz-alert>
 <h1 class="name">{{pharmacy.name}}</h1>
 <label class="nzm"><b>Address:</b> </label>
 <br>
@@ -20,6 +28,9 @@ nzShowIcon
 <label class="nzm">-> {{pharmacy.rating.toFixed(2)}} </label>
 <br>
 <br>
+<button nz-button nzType="primary" class="dugmence" (click)="subscribe()" nzGhost>Subscribe on actions and promotions!</button>
+<br>
+<br>
 <label class="nzm"><b>Pharmacists in this pharmacy:</b></label>
 <nz-table #basicTable [nzData]="pharmacists">
     <thead>
@@ -27,6 +38,7 @@ nzShowIcon
         <th>First name</th>
         <th>Last name</th>
         <th>Number</th>
+        <th>Price</th>
       </tr>
     </thead>
     <tbody>
@@ -34,6 +46,7 @@ nzShowIcon
         <td>{{ pharmacist.firstName }}</td>
         <td>{{ pharmacist.lastName }}</td>
         <td>{{ pharmacist.number }}</td>
+        <td>{{ pharmacist.price}}$</td>
       </tr>
     </tbody>
   </nz-table> 
@@ -109,4 +122,5 @@ nzShowIcon
     </tr>
   </tbody>
 </nz-table> 
+
   

@@ -1,3 +1,4 @@
+import { PharmacistService } from './../../../services/pharmacist.service';
 import { DermatologistAppointmentService } from './../../../services/dermatologist-appointment.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -13,12 +14,15 @@ export class PricelistsComponent implements OnInit {
   public id: any;
   public appointments= [] as  any;
   public priceMedicaments = [] as any;
+  public pharmacists = [];
+  public pharmacyId: any;
 
-  constructor(private router: Router, private pricelistService: PricelistService,  private daService: DermatologistAppointmentService, private route: ActivatedRoute) { }
+  constructor(private pharmacistService: PharmacistService, private router: Router, private pricelistService: PricelistService,  private daService: DermatologistAppointmentService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.setpAppointments();
     this.setupPriceMedicament();
+    this.getAllPharmacistByPharmacyId();
   }
 
   setpAppointments(): void {
@@ -39,6 +43,15 @@ export class PricelistsComponent implements OnInit {
   createPricelist(): void{
     this.id = this.route.snapshot.params.id;
     this.router.navigateByUrl(`homepage/new-items/pricelist/${this.id}`);
+  }
+
+  getAllPharmacistByPharmacyId(): void{
+    this.id = this.route.snapshot.params.id;
+    this.pharmacistService.getAllPharmacistByPharmacyId(this.id).subscribe(data => {
+      this.pharmacists = data;
+    }, error => {
+      alert("Error");
+    })
   }
 
 }

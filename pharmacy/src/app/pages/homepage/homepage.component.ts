@@ -44,7 +44,13 @@ export class HomepageComponent implements OnInit {
     }
     
   }
+  subscribedPharmacies(): void {
+    this.router.navigate(['homepage/lists/subscribed-pharmacies']);
+  }
 
+  createPromotion(): void{
+    this.router.navigate([`homepage/new-items/promotion/${this.user.pharmacyId}`]);
+  }
 
   complaints(): void {
     this.router.navigate([`homepage/lists/complaints/${this.user.pharmacyId}`]);

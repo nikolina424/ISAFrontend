@@ -1,0 +1,30 @@
+<nz-alert
+nzType="success"
+*ngIf="alertCancel"
+nzMessage="Success"
+nzDescription="Successfully canceled subscription!"
+nzShowIcon
+>
+</nz-alert>
+<nz-table #basicTable [nzData]="pharmacies">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>About</th>
+        <th>Address</th>
+        <th>Rating</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pharmacy of pharmacies">
+        <td>{{ pharmacy.name }}</td>
+        <td>{{ pharmacy.about }}</td>
+        <td>{{ pharmacy.address }}</td>
+        <td>{{ pharmacy.rating.toFixed(2) }}</td>
+        <td>
+          <a  (click)="cancel(pharmacy.id)">Cancel subscription</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table> 

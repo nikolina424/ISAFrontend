@@ -34,6 +34,7 @@
           <th>Number</th>
           <th>Address</th>
           <th>Rating</th>
+          <th>Price</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -45,6 +46,7 @@
           <td>{{ pharmacist.number }}</td>
           <td>{{ pharmacist.address }}</td>
           <td>{{ pharmacist.rating.toFixed(2) }}</td>
+          <td>{{ pharmacist.price}}$</td>
           <td>
             <a (click)="remove(pharmacist.id)">Remove</a>
           </td>

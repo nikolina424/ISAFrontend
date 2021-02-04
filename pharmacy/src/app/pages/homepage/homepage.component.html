@@ -20,7 +20,7 @@
         <li nz-menu-item *ngIf="isPatient" (click)="addAllergy()">Add allergy </li>
         <li nz-menu-item *ngIf="isPatient" (click)="consultation()">Reserve consultation </li>
         <li nz-menu-item *ngIf="isPatient" (click)="listPharmacies()">All pharmacies </li>
-        <li nz-submenu *ngIf="isPatient"  nzTitle="Appointment history">
+        <li nz-submenu *ngIf="isPatient"  nzTitle="Reservation history">
           <ul>
             <li nz-submenu  nzTitle="Dermatologists">
               <ul>
@@ -34,15 +34,17 @@
                 <li nz-menu-item (click)="droppedPharmacistApp()" >Dropped</li>
               </ul>
             </li>
-          </ul>
+            <li nz-submenu nzTitle="Medicaments">
+              <ul>
+                <li nz-menu-item  (click)="activeMedReservations()">Active</li>
+                <li nz-menu-item  (click)="droppedMedReservations()">Dropped</li>
+              </ul>
+            </li>
+          </ul> 
         </li>
+        <li nz-menu-item *ngIf="isPatient" (click)="subscribedPharmacies()" >Subscribed pharmacies</li>
         <li nz-menu-item *ngIf="isPatient" (click)="searchMeds()">Search medicaments </li>
-        <li nz-submenu *ngIf="isPatient"  nzTitle="Reserved medicaments">
-          <ul>
-            <li nz-menu-item  (click)="activeMedReservations()">Active</li>
-            <li nz-menu-item  (click)="droppedMedReservations()">Dropped</li>
-          </ul>
-        </li>
+       
 
 
         <li nz-submenu *ngIf="isPharmacyAdmin"  nzTitle="Update">
@@ -56,8 +58,7 @@
           <ul>
             <li nz-menu-item (click)="createFreeAppointment()">Available appointment</li>
             <li nz-menu-item >Purchase order</li>
-            <li nz-menu-item >Actions</li>
-            <li nz-menu-item >Promotions</li>
+            <li nz-menu-item (click)="createPromotion()">Promotions</li>
           </ul>
         </li>
         <li nz-menu-item *ngIf="isPharmacyAdmin">All purchase orders</li>

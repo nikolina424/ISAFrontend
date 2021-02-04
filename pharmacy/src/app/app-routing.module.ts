@@ -1,3 +1,5 @@
+import { PromotionComponent } from './pages/new-items/promotion/promotion.component';
+import { SubscribedPharmaciesComponent } from './pages/lists/subscribed-pharmacies/subscribed-pharmacies.component';
 import { PharmacistConsultationComponent } from './pages/lists/pharmacist-consultation/pharmacist-consultation.component';
 import { PharmacyConsultationComponent } from './pages/lists/pharmacy-consultation/pharmacy-consultation.component';
 import { DroppedPharmacistAppointmentsComponent } from './pages/lists/dropped-pharmacist-appointments/dropped-pharmacist-appointments.component';
@@ -89,6 +91,7 @@ const routes: Routes = [
     {path: 'lists/active-pharmacist-appointments/:id', component: ActivePharmacistAppointmentsComponent},
     {path: 'lists/dropped-pharmacist-appointments/:id', component: DroppedPharmacistAppointmentsComponent},
     {path: 'lists/pricelists/:id', component: PricelistsComponent},
+    {path: 'lists/subscribed-pharmacies', component: SubscribedPharmaciesComponent},
     {path: 'lists/pharmacy-consultation', component: PharmacyConsultationComponent},
     {path: 'lists/pharmacist-consultation/:id', component: PharmacistConsultationComponent},
     {path: 'lists/complaints/:id', component: ComplaintsComponent},
@@ -125,6 +128,7 @@ const routes: Routes = [
     {path: 'new-items/pharmacy', component:PharmacyComponent},
     {path: 'new-items/pharmacy-admin/:id', component:PharmacyAdminComponent},
     {path: 'new-items/complaint-pharmacy/:id', component:ComplaintPharmacyComponent},
+    {path: 'new-items/promotion/:id', component:PromotionComponent},
     {path: 'new-items/complaint-pharmacist/:id', component:ComplaintPharmacistComponent},
     {path: 'new-items/complaint-dermatologist/:id', component:ComplaintDermatologistComponent}
   ]}

@@ -1,3 +1,4 @@
+import { PromotionService } from './../../services/promotion.service';
 import { DermatologistAppointmentService } from './../../services/dermatologist-appointment.service';
 import { PharmacyMedicamentService } from './../../services/pharmacy-medicament.service';
 import { PharmacistService } from './../../services/pharmacist.service';
@@ -30,8 +31,9 @@ export class ProfilePharmacyComponent implements OnInit {
   public isPharmacyAdmin: boolean = false;
   public user: any;
   public reserveDermatologist = false;
+  public alertic = false;
 
-  constructor(private router: Router, private daService: DermatologistAppointmentService, private pmService: PharmacyMedicamentService, private pharmacistService: PharmacistService, private dermatologistService: DermatologistService, private route: ActivatedRoute, private pharmacyService: PharmacyService, private shiftService: ShiftService) { }
+  constructor(private promotionService: PromotionService,  private router: Router, private daService: DermatologistAppointmentService, private pmService: PharmacyMedicamentService, private pharmacistService: PharmacistService, private dermatologistService: DermatologistService, private route: ActivatedRoute, private pharmacyService: PharmacyService, private shiftService: ShiftService) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -64,6 +66,16 @@ export class ProfilePharmacyComponent implements OnInit {
       
     }
    
+  }
+
+  subscribe(): void{
+    this.id = this.route.snapshot.params.id;
+    let body = {
+      pharmacyId: this.id
+    }
+    this.promotionService.subscribePatient(this.user.id, body).subscribe(data =>{
+      this.alertic = true;
+    })
   }
 
   setUpPharmacy(): void{
