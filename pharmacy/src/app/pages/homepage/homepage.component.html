@@ -57,7 +57,7 @@
         <li nz-submenu *ngIf="isPharmacyAdmin"  nzTitle="Create">
           <ul>
             <li nz-menu-item (click)="createFreeAppointment()">Available appointment</li>
-            <li nz-menu-item >Purchase order</li>
+            <li nz-menu-item (click)="createPurchaseOrder()" >Purchase order</li>
             <li nz-menu-item (click)="createPromotion()">Promotions</li>
           </ul>
         </li>

@@ -1,3 +1,4 @@
+import { PurchaseOrderComponent } from './pages/new-items/purchase-order/purchase-order.component';
 import { PromotionComponent } from './pages/new-items/promotion/promotion.component';
 import { SubscribedPharmaciesComponent } from './pages/lists/subscribed-pharmacies/subscribed-pharmacies.component';
 import { PharmacistConsultationComponent } from './pages/lists/pharmacist-consultation/pharmacist-consultation.component';
@@ -113,6 +114,7 @@ const routes: Routes = [
     {path: 'updates/update-password-dermatologist', component:UpdatePasswordDermatologistComponent},
     {path: 'updates/update-password-supplier', component:UpdatePasswordSupplierComponent},
     
+    {path: 'new-items/purchase-order/:id', component:PurchaseOrderComponent},
     {path: 'new-items/allergy', component:AllergyComponent},
     {path: 'new-items/answer/:id', component:AnswerComponent},
     {path: 'new-items/pricelist/:id', component:PricelistComponent},

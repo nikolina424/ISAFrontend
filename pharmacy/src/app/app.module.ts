@@ -1,3 +1,4 @@
+import { PurchaseOrderComponent } from './pages/new-items/purchase-order/purchase-order.component';
 import { PromotionComponent } from './pages/new-items/promotion/promotion.component';
 import { PromotionService } from './services/promotion.service';
 import { SubscribedPharmaciesComponent } from './pages/lists/subscribed-pharmacies/subscribed-pharmacies.component';
@@ -142,7 +143,8 @@ registerLocaleData(en);
     PharmacistConsultationComponent,
     PharmacyConsultationComponent,
     SubscribedPharmaciesComponent,
-    PromotionComponent
+    PromotionComponent,
+    PurchaseOrderComponent
     
     ],
   imports: [

@@ -1,0 +1,37 @@
+<div class="request">
+    <button  nz-button nzType="primary" [disabled]="setOfCheckedId.size === 0" [nzLoading]="loading" (click)="sendRequest()">
+      Send Request
+    </button>
+    <span>Selected {{ setOfCheckedId.size }} items</span>
+  </div>
+
+ <nz-table
+    #rowSelectionTable
+    nzShowPagination
+    nzShowSizeChanger
+    [nzData]="medicaments"
+  >
+  <label class="date"><b>Limit date:</b></label>
+  <input  [(ngModel)]="date" class="nzm" nz-input id="date"/>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Quantity</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let medicament of medicaments; let i = index" [attr.data-index]="i">
+        <td
+          [nzChecked]="setOfCheckedId.has(medicament.id)"
+          (nzCheckedChange)="onItemChecked(medicament.id, $event)"
+        ></td>
+        <td>{{ medicament.name }}</td>
+        <td  >
+            <input [disabled]="!medicamentOrders[i].new"  [(ngModel)]="medicamentOrders[i].quantity" class="nzm" nz-input id="quantity"/>
+        </td>
+    
+      </tr>
+    </tbody>
+  </nz-table>
