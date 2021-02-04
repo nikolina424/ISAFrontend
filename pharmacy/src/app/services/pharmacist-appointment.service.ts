@@ -17,4 +17,8 @@ export class PharmacistAppointmentService {
     return this.http.get(`http://localhost:8080/pharmacist-examinations/active/${id}/patient`);
   }
 
+  public createPharmacistExamination(body): Observable<any> {
+    return this.http.post(`http://localhost:8080/pharmacist-examinations`, body);
+  }
+
 }

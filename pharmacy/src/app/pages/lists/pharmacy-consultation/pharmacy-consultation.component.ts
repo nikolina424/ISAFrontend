@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PharmacyService } from './../../../services/pharmacy.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,9 +13,10 @@ export class PharmacyConsultationComponent implements OnInit {
   public pharmacies = [];
   validateForm!: FormGroup;
   public search = false;
+  public sendData: any;
 
 
-  constructor(private fb: FormBuilder, private pharmacyService: PharmacyService) { }
+  constructor(private router: Router, private fb: FormBuilder, private pharmacyService: PharmacyService) { }
 
   ngOnInit(): void {
     console.log("nnnnn");
@@ -45,6 +47,7 @@ export class PharmacyConsultationComponent implements OnInit {
       startExamination: this.validateForm.value.startExamination == null ? "" : this.validateForm.value.startExamination,
       endExamination: this.validateForm.value.endExamination == null ? "" : this.validateForm.value.endExamination,
     }
+    this.sendData = data;
     console.log(data);
     this.pharmacyService.getPharmaciesByDate(data).subscribe(data => {
      this.pharmacies = data;
@@ -54,6 +57,11 @@ export class PharmacyConsultationComponent implements OnInit {
     }, error => {
      
     })
+  }
+  redirect(id): void{
+    console.log(this.sendData);
+    localStorage.setItem('sendData', JSON.stringify(this.sendData));
+    this.router.navigateByUrl(`homepage/lists/pharmacist-consultation/${id}`);
   }
 
   resetForm(): void {

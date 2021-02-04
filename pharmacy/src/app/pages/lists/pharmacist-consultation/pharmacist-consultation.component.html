@@ -1,1 +1,30 @@
-<p>pharmacist-consultation works!</p>
+<nz-alert
+nzType="success"
+*ngIf="alertSucc"
+nzMessage="Success"
+nzDescription="Pharmacists appointment is reservated!"
+nzShowIcon
+>
+</nz-alert>
+<nz-table #basicTable [nzData]="pharmacists">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Rating</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pharmacist of pharmacists">
+        <td>{{ pharmacist.firstName }}</td>
+        <td>{{ pharmacist.lastName }}</td>
+        <td>{{ pharmacist.rating.toFixed(2) }}</td>
+        <td>
+          <a (click)="reserve(pharmacist.id)">Make a reservation</a>
+        </td>
+      </tr>
+    </tbody>
+</nz-table> 
+ 
+

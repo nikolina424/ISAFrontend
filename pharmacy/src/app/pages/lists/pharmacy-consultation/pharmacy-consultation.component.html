@@ -10,13 +10,13 @@
           <nz-form-item>
             <nz-form-label class="formica" >Start time</nz-form-label>
             <nz-form-control>
-              <input class="ime" nz-input formControlName="startExamination" placeholder="Input start time"/>
+              <input class="start" nz-input formControlName="startExamination" placeholder="Input start time"/>
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
             <nz-form-label class="formica" >End time</nz-form-label>
             <nz-form-control>
-              <input class="ime" nz-input formControlName="endExamination" placeholder="Input end time"/>
+              <input class="end" nz-input formControlName="endExamination" placeholder="Input end time"/>
             </nz-form-control>
           </nz-form-item>
         <div nz-row>
@@ -44,7 +44,7 @@
             <td>{{ pharmacy.address }}</td>
             <td>{{ pharmacy.rating.toFixed(2) }}</td>
             <td>
-              <a *ngIf="search"><b>View pharmacy profile</b></a>
+              <a *ngIf="search" (click)="redirect(pharmacy.id)"><b>See available pharmacists</b></a>
             </td>
           </tr>
         </tbody>
