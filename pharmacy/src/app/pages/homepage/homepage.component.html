@@ -61,7 +61,7 @@
             <li nz-menu-item (click)="createPromotion()">Promotions</li>
           </ul>
         </li>
-        <li nz-menu-item *ngIf="isPharmacyAdmin">All purchase orders</li>
+        <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="allOrders()">All purchase orders</li>
         <li nz-menu-item *ngIf="isPharmacyAdmin">All inquiries</li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="editDermatologists()">Edit dermatologists</li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="complaints()">All complaints</li>

@@ -56,6 +56,10 @@ export class HomepageComponent implements OnInit {
     this.router.navigate([`homepage/new-items/promotion/${this.user.pharmacyId}`]);
   }
 
+  allOrders() : void {
+    this.router.navigate([`homepage/lists/purchase-orders/${this.user.pharmacyId}`]);
+  }
+
   complaints(): void {
     this.router.navigate([`homepage/lists/complaints/${this.user.pharmacyId}`]);
   }

@@ -1,3 +1,4 @@
+import { PurchaseOrdersComponent } from './pages/lists/purchase-orders/purchase-orders.component';
 import { PurchaseOrderComponent } from './pages/new-items/purchase-order/purchase-order.component';
 import { PromotionComponent } from './pages/new-items/promotion/promotion.component';
 import { SubscribedPharmaciesComponent } from './pages/lists/subscribed-pharmacies/subscribed-pharmacies.component';
@@ -97,6 +98,7 @@ const routes: Routes = [
     {path: 'lists/pharmacist-consultation/:id', component: PharmacistConsultationComponent},
     {path: 'lists/complaints/:id', component: ComplaintsComponent},
     {path: 'lists/medicament-pharmacies/:id', component: MedicamentPharmaciesComponent},
+    {path: 'lists/purchase-orders/:id', component: PurchaseOrdersComponent},
     {path: 'updates/update-pharmacy-medicament/:id', component:UpdatePharmacyMedicamentComponent},
     {path: 'updates/update-pharmacy/:id', component:UpdatePharmacyComponent},
    

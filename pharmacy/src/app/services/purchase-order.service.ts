@@ -17,4 +17,12 @@ export class PurchaseOrderService {
     return this.http.post(`http://localhost:8080/purchase-orders`, body);
   }
 
+  public getAllByPharmacyId(id): Observable<any> {
+    return this.http.get(`http://localhost:8080/purchase-orders/${id}/pharmacy`);
+  }
+
+  public getAllByOrderId(id): Observable<any> {
+    return this.http.get(`http://localhost:8080/order-medicaments/${id}/purchase-order`);
+  }
+
 }
