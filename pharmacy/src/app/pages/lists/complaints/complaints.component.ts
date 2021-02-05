@@ -22,29 +22,25 @@ export class ComplaintsComponent implements OnInit {
     this.setupPharmacyComplaints();
     this.setupDermatologistsComplaints();
     this.setupPharmacistsComplaints();
-    console.log("Ne znam sta mi je ??");
   }
 
   setupPharmacyComplaints(): void{
-    this.pharmacyId = this.route.snapshot.params.id;
-    this.complaintService.getAllComplaintsByPharmacyId(this.pharmacyId).subscribe(data =>{
+    this.complaintService.getAllPharmacyComplaints().subscribe(data =>{
       this.pharmacyComplaints = data;
       console.log(data);
     })
   }
 
   setupPharmacistsComplaints(): void{
-    this.pharmacyId = this.route.snapshot.params.id;
-    this.complaintService.getAllComplaintsOnDermatologistsByPharmacyId(this.pharmacyId).subscribe(data =>{
-      this.dermatologistComplaints = data;
+    this.complaintService.getAllPharmacistsComplaints().subscribe(data =>{
+      this.pharmacistComplaints = data;
       console.log(data);
     })
   }
 
   setupDermatologistsComplaints(): void{
-    this.pharmacyId = this.route.snapshot.params.id;
-    this.complaintService.getAllComplaintsOnPharmacistsByPharmacyId(this.pharmacyId).subscribe(data =>{
-      this.pharmacistComplaints = data;
+    this.complaintService.getAllDermatologistComplaints().subscribe(data =>{
+      this.dermatologistComplaints = data;
       console.log(data);
     })
   }

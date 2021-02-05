@@ -21,6 +21,11 @@ export class PurchaseOrderService {
     return this.http.get(`http://localhost:8080/purchase-orders/${id}/pharmacy`);
   }
 
+  public getAllByActiveStatus(): Observable<any> {
+    return this.http.get(`http://localhost:8080/purchase-orders/active`);
+  }
+
+
   public getAllByOrderId(id): Observable<any> {
     return this.http.get(`http://localhost:8080/order-medicaments/${id}/purchase-order`);
   }

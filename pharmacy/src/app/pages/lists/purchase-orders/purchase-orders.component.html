@@ -8,8 +8,9 @@
                 <div *ngIf="orderMedicament.purchaseId===purchaseOrder.id">
                   {{orderMedicament.medName}}  {{orderMedicament.quantity}}
                 </div>
-               
               </div>
+              <br>
+              <a (click)="offers(purchaseOrder.id)"><b>See all offers</b></a>
             </nz-card>
           </nz-list-item>
         </div>

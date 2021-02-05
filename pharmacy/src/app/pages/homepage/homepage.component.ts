@@ -44,8 +44,17 @@ export class HomepageComponent implements OnInit {
     }
     
   }
+
+  seeOfers(): void {
+    this.router.navigateByUrl(`homepage/lists/offers/${this.user.id}`);
+  }
+
   subscribedPharmacies(): void {
     this.router.navigate(['homepage/lists/subscribed-pharmacies']);
+  }
+
+  seeAllPurchaseOrders(): void {
+    this.router.navigate([`homepage/lists/active-purchase-orders`]);
   }
 
   createPurchaseOrder(): void {

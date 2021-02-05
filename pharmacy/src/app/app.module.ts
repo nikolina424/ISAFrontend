@@ -1,3 +1,8 @@
+import { OrderOffersComponent } from './pages/lists/order-offers/order-offers.component';
+import { UpdateOfferComponent } from './pages/updates/update-offer/update-offer.component';
+import { OffersComponent } from './pages/lists/offers/offers.component';
+import { OfferComponent } from './pages/new-items/offer/offer.component';
+import { ActivePurchaseOrdersComponent } from './pages/lists/active-purchase-orders/active-purchase-orders.component';
 import { PurchaseOrdersComponent } from './pages/lists/purchase-orders/purchase-orders.component';
 import { PurchaseOrderComponent } from './pages/new-items/purchase-order/purchase-order.component';
 import { PromotionComponent } from './pages/new-items/promotion/promotion.component';
@@ -146,7 +151,12 @@ registerLocaleData(en);
     SubscribedPharmaciesComponent,
     PromotionComponent,
     PurchaseOrderComponent,
-    PurchaseOrdersComponent
+    PurchaseOrdersComponent,
+    ActivePurchaseOrdersComponent,
+    OfferComponent,
+    OffersComponent,
+    UpdateOfferComponent,
+    OrderOffersComponent
     
     ],
   imports: [

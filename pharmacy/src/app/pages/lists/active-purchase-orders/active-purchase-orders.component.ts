@@ -1,34 +1,29 @@
-import { logging } from 'protractor';
 import { PurchaseOrderService } from './../../../services/purchase-order.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-purchase-orders',
-  templateUrl: './purchase-orders.component.html',
-  styleUrls: ['./purchase-orders.component.css']
+  selector: 'app-active-purchase-orders',
+  templateUrl: './active-purchase-orders.component.html',
+  styleUrls: ['./active-purchase-orders.component.css']
 })
-export class PurchaseOrdersComponent implements OnInit {
+export class ActivePurchaseOrdersComponent implements OnInit {
 
   public pharmacyId : any;
   public purchaseOrders = [] as any;
   public orderMedicaments = [] as any;
   public naziv : any;
+  @Input() actionType: boolean;
 
-  constructor(private router: Router, private route: ActivatedRoute, private poService: PurchaseOrderService) { }
+  constructor( private router: Router, private route: ActivatedRoute, private poService: PurchaseOrderService) { }
 
   ngOnInit(): void {
     this.getAllPurchaseOrders();
   }
 
-  offers(id): void {
-    this.router.navigate([`homepage/lists/order-offers/${id}`]);
-  }
-
   getAllPurchaseOrders(): void{
     this.naziv = "Purchase order";
-    this.pharmacyId = this.route.snapshot.params.id;
-    this.poService.getAllByPharmacyId(this.pharmacyId).subscribe(data => {
+    this.poService.getAllByActiveStatus().subscribe(data => {
       data.forEach(purchaseOrder => {
         this.purchaseOrders.push(purchaseOrder);
         console.log(purchaseOrder);
@@ -50,5 +45,9 @@ export class PurchaseOrdersComponent implements OnInit {
     
   }
 
-  
+  public makeOffer(id){
+    this.router.navigate([`homepage/new-items/offer/${id}`]);
+  }
+
+
 }

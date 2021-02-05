@@ -9,16 +9,16 @@ export class ComplaintService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllComplaintsByPharmacyId(id): Observable<any> {
-    return this.http.get(`http://localhost:8080/complaints/${id}/pharmacy`);
+  public getAllPharmacyComplaints(): Observable<any> {
+    return this.http.get(`http://localhost:8080/complaints/pharmacies`);
   }
 
-  public getAllComplaintsOnDermatologistsByPharmacyId(id): Observable<any> {
-    return this.http.get(`http://localhost:8080/complaints/dermatologists/${id}/pharmacy`);
+  public getAllDermatologistComplaints(): Observable<any> {
+    return this.http.get(`http://localhost:8080/complaints/dermatologists`);
   }
 
-  public getAllComplaintsOnPharmacistsByPharmacyId(id): Observable<any> {
-    return this.http.get(`http://localhost:8080/complaints/pharmacists/${id}/pharmacy`);
+  public getAllPharmacistsComplaints(): Observable<any> {
+    return this.http.get(`http://localhost:8080/complaints/pharmacists`);
   }
 
   public createPharmacyComplaint(body): Observable<any> {

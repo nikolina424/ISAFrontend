@@ -1,0 +1,19 @@
+<nz-list class="nn" nzGrid>
+    <div nz-row [nzGutter]="16">
+      <div nz-col [nzXXl]="6" [nzXl]="4" [nzLg]="6" [nzMd]="6" [nzSm]="12" [nzXs]="10" *ngFor="let purchaseOrder of purchaseOrders">
+        <nz-list-item>
+          <nz-card class="vidi" [nzTitle]="naziv">
+            <div *ngFor="let orderMedicament of orderMedicaments">
+              <div *ngIf="orderMedicament.purchaseId===purchaseOrder.id">
+                {{orderMedicament.medName}}  {{orderMedicament.quantity}}
+              </div>
+            </div>
+            <br>
+            <a (click)="makeOffer(purchaseOrder.id)"><b>Add offer</b></a>
+          </nz-card>
+          
+        </nz-list-item>
+       
+      </div>
+    </div>
+</nz-list>

@@ -4,11 +4,11 @@
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
 
         <li nz-menu-item *ngIf="isSupplier" (click)="supplierProfile()">Change your profile </li>
+        <li nz-menu-item *ngIf="isSupplier" (click)="seeAllPurchaseOrders()">All active purchase orders</li>
+        <li nz-menu-item *ngIf="isSupplier" (click)="seeOfers()">All offers</li>
         <li nz-menu-item *ngIf="isSupplier" (click)="changePasswordSupplier()">Change your password </li>
 
-        <li nz-menu-item *ngIf="isSystemAdmin" (click)="systemAdminProfile()">Change your profile </li>
-        <li nz-menu-item *ngIf="isSystemAdmin" (click)="changePasswordSystemAdmin()">Change your password </li>
-
+        
         <li nz-menu-item *ngIf="isDermatologist" (click)="dermatologistProfile()">Change your profile </li>
         <li nz-menu-item *ngIf="isDermatologist" (click)="changePasswordDermatologist()">Change your password </li>
 
@@ -64,14 +64,14 @@
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="allOrders()">All purchase orders</li>
         <li nz-menu-item *ngIf="isPharmacyAdmin">All inquiries</li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="editDermatologists()">Edit dermatologists</li>
-        <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="complaints()">All complaints</li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="editMedicaments()">Edit medicaments </li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="editPharmacists()">Edit pharmacists </li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="bussinessReport()">Bussiness report</li>
         <li nz-menu-item *ngIf="isPharmacyAdmin" (click)="pricelists()">Pricelists </li>
 
 
-
+        <li nz-menu-item *ngIf="isSystemAdmin" (click)="systemAdminProfile()">Change your profile </li>
+        <li nz-menu-item *ngIf="isSystemAdmin" (click)="changePasswordSystemAdmin()">Change your password </li>
         <li nz-menu-item *ngIf="isSystemAdmin" (click)="registrationRequests()">Registration requests</li>
         <li nz-submenu *ngIf="isSystemAdmin"  nzTitle="Add employees">
           <ul>
@@ -83,7 +83,7 @@
         <li nz-menu-item *ngIf="isSystemAdmin" (click)="allPharmacies()">All pharmacies</li>
         <li nz-menu-item *ngIf="isSystemAdmin" (click)="addPharmacy()">Add pharmacy</li>
         <li nz-menu-item *ngIf="isSystemAdmin" (click)="addMedicament()">Add medicament</li>
-        <li nz-menu-item *ngIf="isSystemAdmin" >All complaints</li>
+        <li nz-menu-item *ngIf="isSystemAdmin" (click)="complaints()">All complaints</li>
         <li nz-menu-item *ngIf="isSystemAdmin">Define loyalty program</li>
         <li nz-menu-item (click)="clearStorage()">Logout</li>
       </ul>

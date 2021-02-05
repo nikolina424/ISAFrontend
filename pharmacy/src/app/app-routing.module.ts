@@ -1,3 +1,8 @@
+import { OrderOffersComponent } from './pages/lists/order-offers/order-offers.component';
+import { UpdateOfferComponent } from './pages/updates/update-offer/update-offer.component';
+import { OffersComponent } from './pages/lists/offers/offers.component';
+import { OfferComponent } from './pages/new-items/offer/offer.component';
+import { ActivePurchaseOrdersComponent } from './pages/lists/active-purchase-orders/active-purchase-orders.component';
 import { PurchaseOrdersComponent } from './pages/lists/purchase-orders/purchase-orders.component';
 import { PurchaseOrderComponent } from './pages/new-items/purchase-order/purchase-order.component';
 import { PromotionComponent } from './pages/new-items/promotion/promotion.component';
@@ -99,15 +104,19 @@ const routes: Routes = [
     {path: 'lists/complaints/:id', component: ComplaintsComponent},
     {path: 'lists/medicament-pharmacies/:id', component: MedicamentPharmaciesComponent},
     {path: 'lists/purchase-orders/:id', component: PurchaseOrdersComponent},
+    {path: 'lists/active-purchase-orders', component: ActivePurchaseOrdersComponent},
+    {path: 'lists/offers/:id', component: OffersComponent},
+    {path: 'lists/order-offers/:id', component: OrderOffersComponent},
+
     {path: 'updates/update-pharmacy-medicament/:id', component:UpdatePharmacyMedicamentComponent},
     {path: 'updates/update-pharmacy/:id', component:UpdatePharmacyComponent},
-   
     {path: 'updates/update-patient/:id', component:UpdatePatientComponent},
     {path: 'updates/update-dermatologist/:id', component:UpdateDermatologistComponent},
     {path: 'updates/update-pharmacist/:id', component:UpdatePharmacistComponent},
     {path: 'updates/update-pharmacy-admin/:id', component:UpdatePharmacyAdminComponent},
     {path: 'updates/update-supplier/:id', component:UpdateSupplierComponent},
     {path: 'updates/update-system-admin/:id', component:UpdateSystemAdminComponent},
+    {path: 'updates/update-offer/:id', component:UpdateOfferComponent},
     
     {path: 'updates/update-password-pa', component:UpdatePasswordPaComponent},
     {path: 'updates/update-password-sa', component:UpdatePasswordSaComponent},
@@ -116,6 +125,7 @@ const routes: Routes = [
     {path: 'updates/update-password-dermatologist', component:UpdatePasswordDermatologistComponent},
     {path: 'updates/update-password-supplier', component:UpdatePasswordSupplierComponent},
     
+    {path: 'new-items/offer/:id', component:OfferComponent},
     {path: 'new-items/purchase-order/:id', component:PurchaseOrderComponent},
     {path: 'new-items/allergy', component:AllergyComponent},
     {path: 'new-items/answer/:id', component:AnswerComponent},

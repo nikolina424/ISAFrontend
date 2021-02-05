@@ -1,0 +1,26 @@
+<nz-alert *ngIf="notCreated" nzType="error" nzMessage="Error" nzDescription="You don't have all of the requested medicaments for purchase order!" nzShowIcon> </nz-alert>
+<nz-alert
+nzType="success"
+*ngIf="created"
+nzMessage="Success"
+nzDescription="Successfully created offer!"
+nzShowIcon
+>
+</nz-alert>
+<form nz-form [formGroup]="validateForm" class="offer-form" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input price!">
+      <nz-input-group>
+        <input type="text" nz-input formControlName="price" placeholder="Price" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input delivery date!">
+      <nz-input-group>
+        <input type="text" nz-input formControlName="date" placeholder="Date" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <button nz-button class="login-form-button login-form-margin" nzType="primary" nzGhost>Create offer</button>
+</form>

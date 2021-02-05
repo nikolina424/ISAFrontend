@@ -1,0 +1,23 @@
+<nz-table #basicTable [nzData]="offers">
+    <thead>
+      <tr>
+        <th>Purchase order id</th>
+        <th>Delivery date</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let offer of offers">
+        <td>{{ offer.purchaseOrder.id }}</td>
+        <td>{{ offer.deliveryDate[2]}}.{{offer.deliveryDate[1]}}.{{offer.deliveryDate[0]}}.</td>
+        <td>{{ offer.price }} $</td>
+        <td>{{ offer.offerStatus}}</td>
+        <td>
+          <a *ngIf="offer.offerStatus==='PENDING'" (click)="updateOffer(offer.id)">Change</a>
+        </td>
+      </tr>
+    </tbody>
+</nz-table> 
+ 
