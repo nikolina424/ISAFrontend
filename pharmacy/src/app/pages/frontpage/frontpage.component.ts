@@ -8,10 +8,18 @@ import { Router } from '@angular/router';
 })
 export class FrontpageComponent implements OnInit {
 
+  public user: any;
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+    this.setupUser();
   }
+
+  private setupUser(): void {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    console.log(this.user)
+  } 
 
   loginForm():void{
     this.router.navigate(['frontpage/login']);

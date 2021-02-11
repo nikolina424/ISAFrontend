@@ -35,7 +35,8 @@ export class PharmacistComponent implements OnInit {
       lastName: this.validateForm.value.lastName,
       startShift: this.validateForm.value.start,
       endShift: this.validateForm.value.end,
-      pharmacyId: this.pharmacyId
+      pharmacyId: this.pharmacyId,
+      price:this.validateForm.value.price
   }
   console.log(body);
   this.authService.registerPharmacist(body).subscribe(data => {
@@ -77,7 +78,8 @@ export class PharmacistComponent implements OnInit {
       address: [null, [Validators.required]],
       number: [null, [Validators.required]],
       start: [null, [Validators.required]],
-      end:  [null, [Validators.required]]
+      end:  [null, [Validators.required]],
+      price:  [null, [Validators.required]]
     });
   }
 

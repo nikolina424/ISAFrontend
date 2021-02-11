@@ -46,6 +46,7 @@ export class ProfilePharmacyComponent implements OnInit {
   }
   private setupUser(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
+    console.log(this.user)
   } 
   
   private setupUserType(): void {

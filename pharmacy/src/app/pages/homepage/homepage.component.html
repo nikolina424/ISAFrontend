@@ -4,9 +4,10 @@
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
 
         <li nz-menu-item *ngIf="isSupplier" (click)="supplierProfile()">Change your profile </li>
+        <li nz-menu-item *ngIf="isSupplier" (click)="changePasswordSupplier()">Change your password </li>
         <li nz-menu-item *ngIf="isSupplier" (click)="seeAllPurchaseOrders()">All active purchase orders</li>
         <li nz-menu-item *ngIf="isSupplier" (click)="seeOfers()">All offers</li>
-        <li nz-menu-item *ngIf="isSupplier" (click)="changePasswordSupplier()">Change your password </li>
+       
 
         
         <li nz-menu-item *ngIf="isDermatologist" (click)="dermatologistProfile()">Change your profile </li>

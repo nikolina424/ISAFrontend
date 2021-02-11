@@ -28,7 +28,7 @@ nzShowIcon
 <label class="nzm">-> {{pharmacy.rating.toFixed(2)}} </label>
 <br>
 <br>
-<button nz-button nzType="primary" class="dugmence" (click)="subscribe()" nzGhost>Subscribe on actions and promotions!</button>
+<button nz-button nzType="primary" *ngIf="isPatient" class="dugmence" (click)="subscribe()" nzGhost>Subscribe on actions and promotions!</button>
 <br>
 <br>
 <label class="nzm"><b>Pharmacists in this pharmacy:</b></label>
@@ -74,7 +74,7 @@ nzShowIcon
         <td>{{ pharmacyMedicament.medicament.shape }}</td>
         <td>{{ pharmacyMedicament.medicament.manufacturer }}</td>
         <td>{{ pharmacyMedicament.medicament.issuance }}</td>
-        <a *ngIf="isPatient" (click)="reserveMedicament(pharmacyMedicament.id)"><b>Reserve</b></a>
+        <td><a *ngIf="isPatient" (click)="reserveMedicament(pharmacyMedicament.id)"><b>Reserve</b></a></td>
       </tr>
     </tbody>
   </nz-table> 
@@ -118,7 +118,7 @@ nzShowIcon
       <td>{{appointment.startTimeExamination[0]}}:{{appointment.startTimeExamination[1]}}0</td>
       <td>{{appointment.endTimeExamination[0]}}:{{appointment.endTimeExamination[1]}}0</td>
       <td>{{ appointment.price }} $</td>
-      <a *ngIf="isPatient" (click)="reserveDermatologistAppointment(appointment.id)"><b>Reserve</b></a>
+      <td><a *ngIf="isPatient" (click)="reserveDermatologistAppointment(appointment.id)"><b>Reserve</b></a></td>
     </tr>
   </tbody>
 </nz-table> 

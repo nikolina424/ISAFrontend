@@ -72,6 +72,12 @@
             <input nz-input formControlName="end" id="end" />
           </nz-form-control>
      </nz-form-item>
+     <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="price">Price</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid price!">
+        <input nz-input formControlName="price" id="price" />
+      </nz-form-control>
+     </nz-form-item>
 
     <nz-form-item nz-row class="register-area">
       <nz-form-control [nzSpan]="14" [nzOffset]="6">
